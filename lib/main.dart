@@ -5,6 +5,7 @@ import 'package:monasba/cubits/sign_up_cubit/sign_up_cubit_cubit.dart';
 import 'package:monasba/network/remote/dio_helper.dart';
 import 'package:monasba/network/local/cache_helper.dart';
 import 'package:monasba/cubits/login/login_cubit.dart';
+import 'package:monasba/pages/owner%20pages/calender/ownercalender.dart';
 import 'package:monasba/pages/user%20pages/contact%20us%20pages/contact_us_page_one.dart';
 import 'package:monasba/pages/user%20pages/contact%20us%20pages/contact_us_page_two.dart';
 import 'package:monasba/pages/user%20pages/home%20pages/search_page.dart';
@@ -30,6 +31,8 @@ import 'package:monasba/providers/gender_dropdown_provider.dart';
 import 'package:monasba/providers/location_dropdown_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+
+import 'pages/owner pages/reservation user/reservation_user_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -96,9 +99,11 @@ class Monasba extends StatelessWidget {
               OwnerRegstration.id: (context) => const OwnerRegstration(),
               OwnerAppNavBar.id: (context) => const OwnerAppNavBar(),
               CalenderReservePage.id: (context) => const CalenderReservePage(),
+              ReservationUserPage.id: (context) => const ReservationUserPage(),
+              OwnerCalender.id: (context) => const OwnerCalender(),
             },
             //The starting page
-            initialRoute: CalenderReservePage.id,
+            initialRoute: OwnerAppNavBar.id,
           ),
         ),
       ),

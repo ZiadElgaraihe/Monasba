@@ -18,6 +18,7 @@ class DatePickerCalender extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
+        height: 43.9.h,
         width: 88.9.w,
         child: SfDateRangePicker(
           headerStyle: DateRangePickerHeaderStyle(

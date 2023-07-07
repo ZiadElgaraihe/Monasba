@@ -22,15 +22,20 @@ class ReservationUserPage extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Colors.amber),
-                  fixedSize: MaterialStatePropertyAll(Size(8.8.w, 5.h))),
-              onPressed: () {},
-              child: SvgPicture.asset(
-                "assets/icons/UserFilter.svg",
-                height: 4.h,
-                width: 10.w,
+            Padding(
+              padding: EdgeInsets.only(left: 4.4.w),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.zero),
+                    backgroundColor:
+                        MaterialStatePropertyAll(Color(0xFFED9526)),
+                    fixedSize: MaterialStatePropertyAll(Size(8.8.w, 5.h))),
+                onPressed: () {},
+                child: SvgPicture.asset(
+                  "assets/icons/Filter.svg",
+                  height: 5.h,
+                  width: 8.8.w,
+                ),
               ),
             ),
             Expanded(

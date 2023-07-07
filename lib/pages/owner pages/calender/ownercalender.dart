@@ -62,9 +62,19 @@ class _OwnerCalenderState extends State<OwnerCalender> {
                 ExpandleFabItem(
                     icon: Icons.calendar_month_rounded,
                     text: "Reserve",
-                    onPressed: () {}),
+                    onPressed: () {
+                      setState(() {
+                        reserveContainer = true;
+                      });
+                    }),
                 ExpandleFabItem(
-                    icon: Icons.local_offer, text: "Offer", onPressed: () {}),
+                    icon: Icons.local_offer,
+                    text: "Offer",
+                    onPressed: () {
+                      setState(() {
+                        offerContainer = true;
+                      });
+                    }),
               ],
             )
           : null,
@@ -139,515 +149,518 @@ class _OwnerCalenderState extends State<OwnerCalender> {
                   )
                 : Container(),
 
-  /********* Offer Container ***********/
-        offerContainer
-            ? Positioned(
-                bottom: 11.h,
-                left: 4.w,
-                // right: ,
-                child: Container(
-                  padding:
-                      EdgeInsets.only(top: 1.3.h, bottom: 1.9.h, left: 4.5.w),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.black,
-                  ),
-                  width: 91.w,
-                  height: 42.h,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Offer",
-                          style: TextStyle(
-                              color: const Color(0xffffffff),
-                              fontWeight: FontWeight.w700,
-                              //fontFamily: "Manrope",
-                              fontStyle: FontStyle.normal,
-                              fontSize: 16.sp),
-                          textAlign: TextAlign.left),
-                      const StartEndDate(startDate: "26-5-2023"),
-                      /**ROW1 */
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/icons/Hallimage.svg',
-                            width: 6.7.w,
-                          ),
-                          SizedBox(
-                            width: 2.7.w,
-                          ),
-                          Text(
-                            'Hall',
-                            style: TextStyle(
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "Manrope",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.sp),
-                          ),
-                          SizedBox(
-                            width: 56.w,
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              setState(() {
-                                hallOfferContainer = true;
-                                offerContainer = false;
-                              });
-                            },
-                            icon: Icon(
-                              Icons.arrow_back_ios,
-                              color: const Color(0xffffffff),
-                              size: 5.w,
-                            ),
-                          ),
-                        ],
+            /********* Offer Container ***********/
+            offerContainer
+                ? Positioned(
+                    bottom: 11.h,
+                    left: 4.w,
+                    // right: ,
+                    child: Container(
+                      padding: EdgeInsets.only(
+                          top: 1.3.h, bottom: 1.9.h, left: 4.5.w),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.black,
                       ),
-                      /**ROW2 */
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/icons/PackageImage.svg',
-                            width: 6.7.w,
-                          ),
-                          SizedBox(
-                            width: 2.7.w,
-                          ),
-                          Text(
-                            'Package',
-                            style: TextStyle(
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "Manrope",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.sp),
-                          ),
-                          SizedBox(
-                            width: 46.9.w,
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              setState(() {
-                                offerContainer = false;
-                                packageOfferContainer = true;
-                              });
-                            },
-                            icon: Icon(
-                              Icons.arrow_back_ios,
-                              color: const Color(0xffffffff),
-                              size: 5.w,
-                            ),
-                          ),
-                        ],
-                      ),
-                      /**ROW3 */
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/icons/DisPerImage.svg',
-                            width: 6.7.w,
-                          ),
-                          SizedBox(
-                            width: 2.7.w,
-                          ),
-                          Text(
-                            'Discount Percentage',
-                            style: TextStyle(
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "Manrope",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.sp),
-                          ),
-                        ],
-                      ),
-                      /**LASTROW */
-                      Row(
-                        children: [
-                          TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  offerContainer = false;
-                                });
-                              },
-                              child: Text("Cancel",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 13.sp))),
-                          SizedBox(
-                            width: 38.6.w,
-                          ),
-                          TextButton(
-                              onPressed: () {},
-                              child: Text("Delete",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 13.sp))),
-                          TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  offerContainer = false;
-                                });
-                              },
-                              child: Text("Save",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 13.sp))),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              )
-            : Container(),
-        /********* Hall Offer Container *********/
-        hallOfferContainer
-            ? Positioned(
-                bottom: 11.h,
-                left: 4.w,
-                // right: ,
-                child: Container(
-                  padding:
-                      EdgeInsets.only(top: 1.3.h, bottom: 1.9.h, left: 4.5.w),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.black,
-                  ),
-                  width: 91.w,
-                  height: 42.h,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            offerContainer = true;
-                            hallOfferContainer = false;
-                          });
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          color: const Color(0xffffffff),
-                          size: 5.w,
-                        ),
-                      ),
-                      /**ROW1 */
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/icons/Hallimage.svg',
-                            width: 6.7.w,
-                          ),
-                          SizedBox(
-                            width: 2.7.w,
-                          ),
-                          Text(
-                            'Hall Name',
-                            style: TextStyle(
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "Manrope",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.sp),
-                          ),
-                        ],
-                      ),
-                      /**ROW2 */
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/icons/Hallimage.svg',
-                            width: 6.7.w,
-                          ),
-                          SizedBox(
-                            width: 2.7.w,
-                          ),
-                          Text(
-                            'Hall Name',
-                            style: TextStyle(
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "Manrope",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.sp),
-                          ),
-                        ],
-                      ),
-                      /**ROW3 */
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/icons/Hallimage.svg',
-                            width: 6.7.w,
-                          ),
-                          SizedBox(
-                            width: 2.7.w,
-                          ),
-                          Text(
-                            'Hall Name',
-                            style: TextStyle(
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "Manrope",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.sp),
-                          ),
-                        ],
-                      ),
-                      /**ROW4 */
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/icons/Hallimage.svg',
-                            width: 6.7.w,
-                          ),
-                          SizedBox(
-                            width: 2.7.w,
-                          ),
-                          Text(
-                            'Hall Name',
-                            style: TextStyle(
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "Manrope",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.sp),
-                          ),
-                        ],
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          setState(() {});
-                        },
-                        child: Text(
-                          "Ok",
-                          style:
-                              TextStyle(color: Colors.white, fontSize: 13.sp),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              )
-            : Container(),
-        /********* Package Offer Container *********/
-        packageOfferContainer
-            ? Positioned(
-                bottom: 11.h,
-                left: 4.w,
-                // right: ,
-                child: Container(
-                  padding:
-                      EdgeInsets.only(top: 1.3.h, bottom: 1.9.h, left: 4.5.w),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.black,
-                  ),
-                  width: 91.w,
-                  height: 42.h,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            offerContainer = true;
-                            packageOfferContainer = false;
-                          });
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          color: const Color(0xffffffff),
-                          size: 5.w,
-                        ),
-                      ),
-                      /**ROW1 */
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/icons/Hallimage.svg',
-                            width: 6.7.w,
-                          ),
-                          SizedBox(
-                            width: 2.7.w,
-                          ),
-                          Text(
-                            'Package Name',
-                            style: TextStyle(
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "Manrope",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.sp),
-                          ),
-                        ],
-                      ),
-                      /**ROW2 */
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/icons/Hallimage.svg',
-                            width: 6.7.w,
-                          ),
-                          SizedBox(
-                            width: 2.7.w,
-                          ),
-                          Text(
-                            'Package Name',
-                            style: TextStyle(
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "Manrope",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.sp),
-                          ),
-                        ],
-                      ),
-                      /**ROW3 */
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/icons/Hallimage.svg',
-                            width: 6.7.w,
-                          ),
-                          SizedBox(
-                            width: 2.7.w,
-                          ),
-                          Text(
-                            'Package Name',
-                            style: TextStyle(
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "Manrope",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.sp),
-                          ),
-                        ],
-                      ),
-                      /**ROW4 */
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/icons/Hallimage.svg',
-                            width: 6.7.w,
-                          ),
-                          SizedBox(
-                            width: 2.7.w,
-                          ),
-                          Text(
-                            'Package Name',
-                            style: TextStyle(
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "Manrope",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.sp),
-                          ),
-                        ],
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          setState(() {});
-                        },
-                        child: Text(
-                          "Ok",
-                          style:
-                              TextStyle(color: Colors.white, fontSize: 13.sp),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              )
-            : Container(),
-        reserveContainer
-            ? Positioned(
-                bottom: 11.h,
-                left: 4.w,
-                // right: ,
-                child: Container(
-                  padding: EdgeInsets.only(
-                      top: 1.3.h, bottom: 1.9.h, left: 4.5.w, right: 6.w),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.black,
-                  ),
-                  width: 91.w,
-                  height: 28.5.h,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Date",
-                          style: TextStyle(
-                              color: const Color(0xffffffff),
-                              fontWeight: FontWeight.w700,
-                              //fontFamily: "Manrope",
-                              fontStyle: FontStyle.normal,
-                              fontSize: 16.sp),
-                          textAlign: TextAlign.left),
-                      StartEndDate(startDate: "10 jule"),
-                      Row(
-                        children: [
-                          SvgPicture.asset('assets/icons/ClockImage.svg',
-                              width: 6.7.w),
-                          SizedBox(
-                            width: 2.7.w,
-                          ),
-                          Text(
-                            'Select Time',
-                            style: TextStyle(
-                                color: const Color(0xffffffff),
-                                fontWeight: FontWeight.w600,
-                                fontFamily: "Manrope",
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12.sp),
-                          ),
-                          SizedBox(
-                            width: 39.4.w,
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              setState(() {});
-                            },
-                            icon: Icon(
-                              Icons.arrow_back_ios,
-                              color: const Color(0xffffffff),
-                              size: 5.w,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
+                      width: 91.w,
+                      height: 42.h,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  reserveContainer = false;
-                                });
-                              },
-                              child: Text("Cancel",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 13.sp))),
+                          Text("Offer",
+                              style: TextStyle(
+                                  color: const Color(0xffffffff),
+                                  fontWeight: FontWeight.w700,
+                                  //fontFamily: "Manrope",
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 16.sp),
+                              textAlign: TextAlign.left),
+                          const StartEndDate(startDate: "26-5-2023"),
+                          /**ROW1 */
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/Hallimage.svg',
+                                width: 6.7.w,
+                              ),
+                              SizedBox(
+                                width: 2.7.w,
+                              ),
+                              Text(
+                                'Hall',
+                                style: TextStyle(
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: "Manrope",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.sp),
+                              ),
+                              SizedBox(
+                                width: 56.w,
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    hallOfferContainer = true;
+                                    offerContainer = false;
+                                  });
+                                },
+                                icon: Icon(
+                                  Icons.arrow_back_ios,
+                                  color: const Color(0xffffffff),
+                                  size: 5.w,
+                                ),
+                              ),
+                            ],
+                          ),
+                          /**ROW2 */
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/PackageImage.svg',
+                                width: 6.7.w,
+                              ),
+                              SizedBox(
+                                width: 2.7.w,
+                              ),
+                              Text(
+                                'Package',
+                                style: TextStyle(
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: "Manrope",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.sp),
+                              ),
+                              SizedBox(
+                                width: 46.9.w,
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    offerContainer = false;
+                                    packageOfferContainer = true;
+                                  });
+                                },
+                                icon: Icon(
+                                  Icons.arrow_back_ios,
+                                  color: const Color(0xffffffff),
+                                  size: 5.w,
+                                ),
+                              ),
+                            ],
+                          ),
+                          /**ROW3 */
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/DisPerImage.svg',
+                                width: 6.7.w,
+                              ),
+                              SizedBox(
+                                width: 2.7.w,
+                              ),
+                              Text(
+                                'Discount Percentage',
+                                style: TextStyle(
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: "Manrope",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.sp),
+                              ),
+                            ],
+                          ),
+                          /**LASTROW */
+                          Row(
+                            children: [
+                              TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      offerContainer = false;
+                                    });
+                                  },
+                                  child: Text("Cancel",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 13.sp))),
+                              SizedBox(
+                                width: 38.6.w,
+                              ),
+                              TextButton(
+                                  onPressed: () {},
+                                  child: Text("Delete",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 13.sp))),
+                              TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      offerContainer = false;
+                                    });
+                                  },
+                                  child: Text("Save",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 13.sp))),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                : Container(),
+            /********* Hall Offer Container *********/
+            hallOfferContainer
+                ? Positioned(
+                    bottom: 11.h,
+                    left: 4.w,
+                    // right: ,
+                    child: Container(
+                      padding: EdgeInsets.only(
+                          top: 1.3.h, bottom: 1.9.h, left: 4.5.w),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.black,
+                      ),
+                      width: 91.w,
+                      height: 42.h,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              setState(() {
+                                offerContainer = true;
+                                hallOfferContainer = false;
+                              });
+                            },
+                            icon: Icon(
+                              Icons.arrow_back_ios,
+                              color: const Color(0xffffffff),
+                              size: 5.w,
+                            ),
+                          ),
+                          /**ROW1 */
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/Hallimage.svg',
+                                width: 6.7.w,
+                              ),
+                              SizedBox(
+                                width: 2.7.w,
+                              ),
+                              Text(
+                                'Hall Name',
+                                style: TextStyle(
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: "Manrope",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.sp),
+                              ),
+                            ],
+                          ),
+                          /**ROW2 */
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/Hallimage.svg',
+                                width: 6.7.w,
+                              ),
+                              SizedBox(
+                                width: 2.7.w,
+                              ),
+                              Text(
+                                'Hall Name',
+                                style: TextStyle(
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: "Manrope",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.sp),
+                              ),
+                            ],
+                          ),
+                          /**ROW3 */
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/Hallimage.svg',
+                                width: 6.7.w,
+                              ),
+                              SizedBox(
+                                width: 2.7.w,
+                              ),
+                              Text(
+                                'Hall Name',
+                                style: TextStyle(
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: "Manrope",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.sp),
+                              ),
+                            ],
+                          ),
+                          /**ROW4 */
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/Hallimage.svg',
+                                width: 6.7.w,
+                              ),
+                              SizedBox(
+                                width: 2.7.w,
+                              ),
+                              Text(
+                                'Hall Name',
+                                style: TextStyle(
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: "Manrope",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.sp),
+                              ),
+                            ],
+                          ),
                           TextButton(
                             onPressed: () {
                               setState(() {});
                             },
                             child: Text(
-                              "Continue",
+                              "Ok",
                               style: TextStyle(
                                   color: Colors.white, fontSize: 13.sp),
                             ),
                           ),
                         ],
-                      )
-                    ],
-                  ),
-                ),
-              )
-            : Container(),
-    
+                      ),
+                    ),
+                  )
+                : Container(),
+            /********* Package Offer Container *********/
+            packageOfferContainer
+                ? Positioned(
+                    bottom: 11.h,
+                    left: 4.w,
+                    // right: ,
+                    child: Container(
+                      padding: EdgeInsets.only(
+                          top: 1.3.h, bottom: 1.9.h, left: 4.5.w),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.black,
+                      ),
+                      width: 91.w,
+                      height: 42.h,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              setState(() {
+                                offerContainer = true;
+                                packageOfferContainer = false;
+                              });
+                            },
+                            icon: Icon(
+                              Icons.arrow_back_ios,
+                              color: const Color(0xffffffff),
+                              size: 5.w,
+                            ),
+                          ),
+                          /**ROW1 */
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/Hallimage.svg',
+                                width: 6.7.w,
+                              ),
+                              SizedBox(
+                                width: 2.7.w,
+                              ),
+                              Text(
+                                'Package Name',
+                                style: TextStyle(
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: "Manrope",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.sp),
+                              ),
+                            ],
+                          ),
+                          /**ROW2 */
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/Hallimage.svg',
+                                width: 6.7.w,
+                              ),
+                              SizedBox(
+                                width: 2.7.w,
+                              ),
+                              Text(
+                                'Package Name',
+                                style: TextStyle(
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: "Manrope",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.sp),
+                              ),
+                            ],
+                          ),
+                          /**ROW3 */
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/Hallimage.svg',
+                                width: 6.7.w,
+                              ),
+                              SizedBox(
+                                width: 2.7.w,
+                              ),
+                              Text(
+                                'Package Name',
+                                style: TextStyle(
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: "Manrope",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.sp),
+                              ),
+                            ],
+                          ),
+                          /**ROW4 */
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/Hallimage.svg',
+                                width: 6.7.w,
+                              ),
+                              SizedBox(
+                                width: 2.7.w,
+                              ),
+                              Text(
+                                'Package Name',
+                                style: TextStyle(
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: "Manrope",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.sp),
+                              ),
+                            ],
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              setState(() {});
+                            },
+                            child: Text(
+                              "Ok",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 13.sp),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                : Container(),
+            reserveContainer
+                ? Positioned(
+                    bottom: 11.h,
+                    left: 4.w,
+                    // right: ,
+                    child: Container(
+                      padding: EdgeInsets.only(
+                          top: 1.3.h, bottom: 1.9.h, left: 4.5.w, right: 6.w),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.black,
+                      ),
+                      width: 91.w,
+                      height: 28.5.h,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Date",
+                              style: TextStyle(
+                                  color: const Color(0xffffffff),
+                                  fontWeight: FontWeight.w700,
+                                  //fontFamily: "Manrope",
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 16.sp),
+                              textAlign: TextAlign.left),
+                          StartEndDate(startDate: "10 jule"),
+                          Row(
+                            children: [
+                              SvgPicture.asset('assets/icons/ClockImage.svg',
+                                  width: 6.7.w),
+                              SizedBox(
+                                width: 2.7.w,
+                              ),
+                              Text(
+                                'Select Time',
+                                style: TextStyle(
+                                    color: const Color(0xffffffff),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: "Manrope",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 12.sp),
+                              ),
+                              SizedBox(
+                                width: 39.4.w,
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {});
+                                },
+                                icon: Icon(
+                                  Icons.arrow_back_ios,
+                                  color: const Color(0xffffffff),
+                                  size: 5.w,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      reserveContainer = false;
+                                    });
+                                  },
+                                  child: Text("Cancel",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 13.sp))),
+                              TextButton(
+                                onPressed: () {
+                                  setState(() {});
+                                },
+                                child: Text(
+                                  "Continue",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 13.sp),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                : Container(),
 
             SizedBox(
               height: 11.h,
@@ -721,9 +734,9 @@ class ExpandleFabItem extends StatelessWidget {
         backgroundColor: Colors.black,
         heroTag: null,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Icon(icon),
+            Icon(icon, size: 6.w),
             Text(
               text,
               style: TextStyle(fontSize: 8.sp),
