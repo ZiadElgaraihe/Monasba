@@ -20,6 +20,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     emit(SignUpCubitLoading());
     try {
       await SignUpService().signUp(
+        isSignUp: true,
         firstName: firstName,
         lastName: lastName,
         userName: userName,

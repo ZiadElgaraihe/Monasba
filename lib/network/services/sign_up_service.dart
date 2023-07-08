@@ -2,6 +2,7 @@ import 'package:monasba/network/helper/api.dart';
 
 class SignUpService {
   Future<void> signUp({
+    required bool isSignUp,
     required String firstName,
     required String lastName,
     required String userName,
@@ -11,7 +12,7 @@ class SignUpService {
     required String city,
     required String phoneNumber,
   }) async {
-    await Api().post(restOfUrl: 'signup', body: {
+    await Api().post(isSignUp: isSignUp, restOfUrl: 'signup', body: {
       'firstName': firstName,
       'lastName': lastName,
       'userName': userName,
