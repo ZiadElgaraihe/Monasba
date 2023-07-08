@@ -17,10 +17,10 @@ class LocationDropdownField extends StatelessWidget {
     return Row(
       children: [
         Container(
-          padding: EdgeInsets.only(right: 5.w), //left: 4.5.w,
+          padding: EdgeInsets.symmetric(horizontal: 3.3.w), //left: 4.5.w,
           height: 5.5.h,
           width: orientation == Orientation.landscape ? 47.25.h : 45.25.w,
-          alignment: Alignment.center,
+          alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
             border: Border(
               left: BorderSide(
@@ -29,21 +29,11 @@ class LocationDropdownField extends StatelessWidget {
                       pageMode == PageMode.dark ? Colors.white : Colors.black),
             ),
           ),
-          child: Selector<LocationDropDownProvider, String?>(
-            selector: (context, provider) => provider.selectedCountry,
-            builder: (context, value, child) {
-              return DropdownButtonDesign(
-                title: 'Country',
-                list: locationData.keys.toList(),
-                value: value,
-                onChanged: Provider.of<LocationDropDownProvider>(context,
-                        listen: false)
-                    .changeCountry,
-                pageMode: pageMode,
-                dropDownDataWidth:
-                    orientation == Orientation.landscape ? 46.5.h : 44.5.w,
-              );
-            },
+          child: Text(
+            'Egypt',
+            style: TextStyle(
+                color: pageMode == PageMode.dark ? Colors.white : Colors.black,
+                fontSize: 14.sp),
           ),
         ),
         Container(
@@ -59,15 +49,14 @@ class LocationDropdownField extends StatelessWidget {
                       pageMode == PageMode.dark ? Colors.white : Colors.black),
             ),
           ),
-          child: Consumer<LocationDropDownProvider>(
+          child: Selector<LocationDropDownProvider, String?>(
+            selector: (context, provider) => provider.selectedCity,
             builder: (context, value, child) {
               return DropdownButtonDesign(
                 title: 'City',
-                list: (locationData[value.selectedCountry] != null)
-                    ? locationData[value.selectedCountry]!['city']
-                    : [],
-                value: value.selectedCity,
-                onChanged: value.changeCity,
+                list: cities,
+                value: value,
+                onChanged: context.watch<LocationDropDownProvider>().changeCity,
                 pageMode: pageMode,
                 dropDownDataWidth:
                     orientation == Orientation.landscape ? 46.5.h : 44.5.w,

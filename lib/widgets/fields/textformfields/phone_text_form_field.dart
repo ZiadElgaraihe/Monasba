@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:monasba/constants.dart';
-import 'package:monasba/providers/location_dropdown_provider.dart';
-import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class PhoneTextFormField extends StatefulWidget {
@@ -52,20 +50,17 @@ class _PhoneTextFormFieldState extends State<PhoneTextFormField> {
             ),
             child: Row(
               children: [
-                Selector<LocationDropDownProvider, String?>(
-                  selector: (context, provider) => provider.countryCode,
-                  builder: (context, value, child) => Container(
-                    alignment: AlignmentDirectional.center,
-                    height: 3.8.h,
-                    width: 13.w,
-                    child: Text(
-                      value ?? '+20',
-                      style: TextStyle(
-                          color: widget.pageMode == PageMode.dark
-                              ? const Color(0xFFed9526)
-                              : Colors.black,
-                          fontSize: 14.sp),
-                    ),
+                Container(
+                  alignment: AlignmentDirectional.center,
+                  height: 3.8.h,
+                  width: 13.w,
+                  child: Text(
+                    '+20',
+                    style: TextStyle(
+                        color: widget.pageMode == PageMode.dark
+                            ? const Color(0xFFed9526)
+                            : Colors.black,
+                        fontSize: 14.sp),
                   ),
                 ),
                 Expanded(

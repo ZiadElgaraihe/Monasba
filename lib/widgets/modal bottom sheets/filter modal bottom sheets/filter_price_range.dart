@@ -15,7 +15,7 @@ class FilterPriceRange extends StatefulWidget {
 
 class _FilterPriceRangeState extends State<FilterPriceRange> {
   final ValueNotifier<RangeValues> _valueNotifier =
-      ValueNotifier<RangeValues>(const RangeValues(0, 500));
+      ValueNotifier<RangeValues>(const RangeValues(15000, 20000));
 
   @override
   void initState() {
@@ -80,12 +80,12 @@ class _FilterPriceRangeState extends State<FilterPriceRange> {
             Expanded(
               child: SingleChildScrollView(
                 child: RangeSlider(
-                  divisions: 20,
+                  divisions: 17,
                   activeColor: Colors.white,
                   inactiveColor: const Color(0xFF818181),
                   values: value,
-                  min: 0,
-                  max: 2000,
+                  min: 15000,
+                  max: 100000,
                   onChanged: (value) {
                     _valueNotifier.value = value;
                   },

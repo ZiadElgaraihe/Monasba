@@ -162,16 +162,12 @@ class _SignupPageState extends State<SignupPage> {
                               userName: _userNameController.text,
                               email: _emailController.text,
                               password: _passwordController.text,
-                              country: context
-                                      .read<LocationDropDownProvider>()
-                                      .selectedCountry ??
-                                  '',
+                              country: 'Egypt',
                               city: context
                                       .read<LocationDropDownProvider>()
                                       .selectedCity ??
                                   '',
-                              phoneNumber:
-                                  '${context.read<LocationDropDownProvider>().countryCode ?? '+20'}${_phoneNumberController.text}');
+                              phoneNumber: '+20${_phoneNumberController.text}');
                         }
                       },
                     ),
@@ -227,8 +223,7 @@ class _SignupPageState extends State<SignupPage> {
 
   String? phoneValidator(value) {
     if (value != null &&
-        !RegExp(r'^\+20(10|11|12|15)[0-9]{8}$').hasMatch(
-            '${context.read<LocationDropDownProvider>().countryCode ?? '+20'}$value')) {
+        !RegExp(r'^\+20(10|11|12|15)[0-9]{8}$').hasMatch('+20$value')) {
       return 'Invalid phone number';
     }
     return null;

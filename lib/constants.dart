@@ -4,20 +4,35 @@ import 'package:sizer/sizer.dart';
 const Color darkBackground = Color(0xFF000000);
 const Color lightBackground = Color(0xFFFFFFFF);
 
-const Map<String, Map> locationData = {
-  'Egypt': {
-    'city': ['PortSaid', 'Alexandria', 'Ismailia'],
-    'code': '+20'
-  },
-  'Moracco': {
-    'city': ['Rebat', 'Casablanca', 'Tangier'],
-    'code': '+212'
-  },
-  'Libya': {
-    'city': ['Tripoli', 'Benghazi', 'Misrata'],
-    'code': '+218'
-  }
-};
+const List<String> cities = [
+  'Alexandria',
+  'Aswan',
+  'Asyut',
+  'Beheira',
+  'Beni Suef',
+  'Cairo',
+  'Damietta',
+  'Dakahlia',
+  'Faiyum',
+  'Gharbia',
+  'Giza',
+  'Ismailia',
+  'Kafr El Sheikh',
+  'Luxor',
+  'Matrouh',
+  'Minya',
+  'Monufia',
+  'New Valley',
+  'North Sinai',
+  'Port Said',
+  'Qalyubia',
+  'Qena',
+  'Red Sea',
+  'Sharqia',
+  'Sohag',
+  'South Sinai',
+  'Suez',
+];
 
 const List<String> genders = ['None', 'Male', 'Female'];
 

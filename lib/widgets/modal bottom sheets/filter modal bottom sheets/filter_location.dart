@@ -7,10 +7,8 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class FilterLocation extends StatelessWidget {
-  const FilterLocation(
-      {super.key, required this.listViewItems, required this.isCity});
+  const FilterLocation({super.key, required this.listViewItems});
 
-  final bool isCity;
   final List listViewItems;
 
   @override
@@ -33,15 +31,10 @@ class FilterLocation extends StatelessWidget {
                   title: listViewItems[index],
                   appearLeftTrend: false,
                   onTap: () {
-                    if (isCity) {
-                      context
-                          .read<FilterProvider>()
-                          .changeCity(listViewItems[index]);
-                    } else {
-                      context
-                          .read<FilterProvider>()
-                          .changeCountry(listViewItems[index]);
-                    }
+                    context
+                        .read<FilterProvider>()
+                        .changeCity(listViewItems[index]);
+
                     Navigator.pop(context);
                     final AnimationController controller = AnimationController(
                       duration: const Duration(milliseconds: 750),

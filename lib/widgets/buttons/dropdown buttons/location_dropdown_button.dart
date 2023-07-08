@@ -34,6 +34,7 @@ class _DropdownButtonDesignState extends State<DropdownButtonDesign> {
       child: DropdownButton2(
         menuItemStyleData: MenuItemStyleData(height: 5.6.h),
         dropdownStyleData: DropdownStyleData(
+          maxHeight: 16.9.h,
           width: widget.dropDownDataWidth,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(7.5)),
@@ -89,9 +90,12 @@ class _DropdownButtonDesignState extends State<DropdownButtonDesign> {
         items: widget.list
             .map<DropdownMenuItem<String>>((e) => DropdownMenuItem(
                   value: e,
-                  child: Text(
-                    e,
-                    style: TextStyle(color: Colors.black, fontSize: 14.sp),
+                  child: SizedBox(
+                    height: 5.6.h,
+                    child: Text(
+                      e,
+                      style: TextStyle(color: Colors.black, fontSize: 14.sp),
+                    ),
                   ),
                 ))
             .toList(),

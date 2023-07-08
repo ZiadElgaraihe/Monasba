@@ -67,29 +67,24 @@ class _FilterHomeState extends State<FilterHome> {
                       Navigator.pop(context);
                       animateModalSheet(const FilterOccasion());
                     }),
-                Selector<FilterProvider, String?>(
-                  selector: (context, provider) => provider.selectedCountry,
-                  builder: (context, value, child) => FilterItemButton(
-                      title: value ?? 'Country',
-                      appearLeftTrend: true,
-                      onTap: () {
-                        Navigator.pop(context);
-                        animateModalSheet(FilterLocation(
-                            isCity: false,
-                            listViewItems: locationData.keys.toList()));
-                      }),
+                Container(
+                  height: 5.6.h,
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.symmetric(horizontal: 4.4.w),
+                  child: Text(
+                    'Egypt',
+                    style: TextStyle(color: Colors.white, fontSize: 14.sp),
+                  ),
                 ),
-                Consumer<FilterProvider>(
+                Selector<FilterProvider, String?>(
+                  selector: (context, provider) => provider.selectedCity,
                   builder: (context, value, child) => FilterItemButton(
-                      title: value.selectedCity ?? 'City',
+                      title: value ?? 'City',
                       appearLeftTrend: true,
                       onTap: () {
                         Navigator.pop(context);
-                        animateModalSheet(FilterLocation(
-                            isCity: true,
-                            listViewItems: value.selectedCountry != null
-                                ? locationData[value.selectedCountry]!['city']
-                                : []));
+                        animateModalSheet(
+                            const FilterLocation(listViewItems: cities));
                       }),
                 ),
                 FilterItemButton(
