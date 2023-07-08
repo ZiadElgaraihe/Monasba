@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monasba/pages/user%20pages/home%20pages/home_page.dart';
+import 'package:monasba/pages/user%20pages/map%20pages/map_page.dart';
 import 'package:monasba/pages/user%20pages/saved%20pages/saved_page.dart';
 import 'package:monasba/widgets/containers/side_bar.dart';
 import 'package:sizer/sizer.dart';
@@ -30,7 +31,7 @@ class _AppNavBarState extends State<AppNavBar> {
           child: HomePage(
             navBarScaffoldKey: _key,
           )),
-      const SafeArea(child: Text('Map')),
+      SizedBox(height: 90.h, child: const MapPage()),
       SizedBox(height: 90.h, child: const SavedPage()),
       SizedBox(height: 90.h, child: const Profile()),
     ];

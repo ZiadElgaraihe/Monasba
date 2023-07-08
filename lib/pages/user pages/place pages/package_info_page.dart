@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:monasba/constants.dart';
+import 'package:monasba/cubits/reservation_cubit/reservation_cubit.dart';
 import 'package:monasba/pages/user%20pages/reservation%20pages/calender_reserve_page.dart';
 import 'package:monasba/widgets/appbars/appbar_design.dart';
 import 'package:monasba/widgets/buttons/elevated%20buttons/colored_button.dart';
 import 'package:monasba/widgets/containers/package_info_container.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class PackageInfoPage extends StatefulWidget {
@@ -102,6 +104,10 @@ class _PackageInfoPageState extends State<PackageInfoPage> {
                               borderRadius: BorderRadius.circular(20),
                               onTap: () {
                                 _selectedIndex.value = index;
+                                context.read<ReservationCubit>().selectPackage(
+                                    personsAndPrices[index]
+                                        ['number of persons']!,
+                                    personsAndPrices[index]['price']!);
                               },
                               child: Container(
                                 width: 4.9.w,

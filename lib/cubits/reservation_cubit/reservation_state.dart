@@ -4,7 +4,3 @@ part of 'reservation_cubit.dart';
 abstract class ReservationState {}
 
 class ReservationInitial extends ReservationState {}
-
-class ReservationDaySelected extends ReservationState {}
-
-class ReservationTimeSelected extends ReservationState {}

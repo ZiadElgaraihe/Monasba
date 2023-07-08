@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:monasba/constants.dart';
-import 'package:monasba/widgets/texts/page_title.dart';
 import 'package:sizer/sizer.dart';
 
-class DateAnimatedContainerItem extends StatelessWidget {
-  const DateAnimatedContainerItem({
+class ReservationItem extends StatelessWidget {
+  const ReservationItem({
     super.key,
     required this.icon,
     required this.title,
     this.value,
+    required this.pageMode,
   });
 
-  final IconData icon;
+  final String icon;
   final String title;
   final String? value;
+  final PageMode pageMode;
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +23,27 @@ class DateAnimatedContainerItem extends StatelessWidget {
       height: 5.5.h,
       child: Row(
         children: [
-          Icon(
+          SvgPicture.asset(
             icon,
-            color: Colors.white,
-            size: 6.7.w,
+            height: 3.8.h,
+            width: 6.7.w,
+            colorFilter: ColorFilter.mode(
+              pageMode == PageMode.dark
+                  ? Colors.white
+                  : const Color(0xFF686868),
+              BlendMode.srcATop,
+            ),
           ),
           SizedBox(width: 2.2.w),
-          PageTitle(
-            title: value ?? title,
-            pageMode: PageMode.dark,
-            fontSize: 16.sp,
+          Text(
+            value ?? title,
+            style: TextStyle(
+              color: pageMode == PageMode.dark
+                  ? Colors.white
+                  : const Color(0xFF686868),
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w500,
+            ),
           ),
           if (value == null) const Spacer(),
           if (value == null)

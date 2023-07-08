@@ -21,6 +21,8 @@ const Map<String, Map> locationData = {
 
 const List<String> genders = ['None', 'Male', 'Female'];
 
+const List<String> payWith = ['Master Card', 'Credit Card', 'Paypal'];
+
 const List<String> occasions = [
   "All",
   "Wedding",

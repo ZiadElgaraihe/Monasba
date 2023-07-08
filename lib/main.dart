@@ -15,6 +15,9 @@ import 'package:monasba/pages/user%20pages/registeration%20pages/login_page.dart
 import 'package:monasba/pages/user%20pages/registeration%20pages/reset_password_page.dart';
 import 'package:monasba/pages/user%20pages/registeration%20pages/signup_page.dart';
 import 'package:monasba/pages/user%20pages/reservation%20pages/calender_reserve_page.dart';
+import 'package:monasba/pages/user%20pages/reservation%20pages/confirm_detail_page.dart';
+import 'package:monasba/pages/user%20pages/reservation%20pages/reserve_hall_page.dart';
+import 'package:monasba/pages/user%20pages/reservation%20pages/success_page.dart';
 import 'package:monasba/pages/user%20pages/sidebar%20pages/history_page.dart';
 import 'package:monasba/pages/user%20pages/sidebar%20pages/notification_page.dart';
 import 'package:monasba/pages/user%20pages/sidebar%20pages/reservation%20pages/reservation_information_page.dart';
@@ -96,9 +99,12 @@ class Monasba extends StatelessWidget {
               OwnerRegstration.id: (context) => const OwnerRegstration(),
               OwnerAppNavBar.id: (context) => const OwnerAppNavBar(),
               CalenderReservePage.id: (context) => const CalenderReservePage(),
+              ReserveHallPage.id: (context) => const ReserveHallPage(),
+              ConfirmDetailPage.id: (context) => const ConfirmDetailPage(),
+              SuccessPage.id: (context) => const SuccessPage(),
             },
             //The starting page
-            initialRoute: CalenderReservePage.id,
+            initialRoute: AppNavBar.id,
           ),
         ),
       ),

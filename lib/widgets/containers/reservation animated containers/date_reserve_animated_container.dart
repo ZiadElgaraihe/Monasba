@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:monasba/constants.dart';
 import 'package:monasba/cubits/reservation_cubit/reservation_cubit.dart';
+import 'package:monasba/pages/user%20pages/reservation%20pages/reserve_hall_page.dart';
 import 'package:monasba/widgets/containers/time_picker_container.dart';
 import 'package:monasba/widgets/rows/date_animated_container_item.dart';
 import 'package:monasba/widgets/texts/page_title.dart';
@@ -37,8 +38,9 @@ class DateReserveAnimatedContainer extends StatelessWidget {
               fontSize: 16.sp,
             ),
             SizedBox(height: 1.8.h),
-            DateAnimatedContainerItem(
-              icon: Icons.calendar_month_rounded,
+            ReservationItem(
+              icon: 'assets/icons/reservation icons/day.svg',
+              pageMode: PageMode.dark,
               title: 'Day',
               value: context.watch<ReservationCubit>().day,
             ),
@@ -49,8 +51,9 @@ class DateReserveAnimatedContainer extends StatelessWidget {
                 onTap: () {
                   handleTimePicker(context);
                 },
-                child: DateAnimatedContainerItem(
-                  icon: Icons.access_time,
+                child: ReservationItem(
+                  pageMode: PageMode.dark,
+                  icon: 'assets/icons/reservation icons/time.svg',
                   title: 'Time',
                   value: context
                       .watch<ReservationCubit>()
@@ -75,7 +78,9 @@ class DateReserveAnimatedContainer extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, ReserveHallPage.id);
+                  },
                   child: PageTitle(
                     title: 'Continue',
                     pageMode: PageMode.dark,

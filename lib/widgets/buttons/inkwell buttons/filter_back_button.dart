@@ -4,7 +4,12 @@ import 'package:monasba/widgets/modal%20bottom%20sheets/filter%20modal%20bottom%
 import 'package:sizer/sizer.dart';
 
 class FilterBackButton extends StatelessWidget {
-  const FilterBackButton({super.key});
+  const FilterBackButton({
+    super.key,
+    this.isVisible,
+  });
+
+  final ValueNotifier<bool>? isVisible;
 
   @override
   Widget build(BuildContext context) {
@@ -13,18 +18,22 @@ class FilterBackButton extends StatelessWidget {
       child: InkWell(
         onTap: () {
           Navigator.pop(context);
-          final AnimationController controller = AnimationController(
-            duration: const Duration(milliseconds: 750),
-            vsync: Navigator.of(context),
-          );
-          showModalBottomSheet(
-            context: context,
-            barrierColor: Colors.white.withOpacity(0.3),
-            backgroundColor: Colors.transparent,
-            builder: (context) => const FilterHome(),
-            transitionAnimationController: controller,
-          );
-          controller.forward();
+          if (isVisible == null) {
+            final AnimationController controller = AnimationController(
+              duration: const Duration(milliseconds: 750),
+              vsync: Navigator.of(context),
+            );
+            showModalBottomSheet(
+              context: context,
+              barrierColor: Colors.white.withOpacity(0.3),
+              backgroundColor: Colors.transparent,
+              builder: (context) => const FilterHome(),
+              transitionAnimationController: controller,
+            );
+            controller.forward();
+          } else {
+            isVisible!.value = true;
+          }
         },
         child: SvgPicture.asset(
           'assets/icons/trends/Left.svg',
