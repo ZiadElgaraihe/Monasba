@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monasba/constants.dart';
+import 'package:monasba/pages/user%20pages/place%20pages/hall_page.dart';
 import 'package:monasba/widgets/buttons/elevated%20buttons/colored_button.dart';
 import 'package:monasba/widgets/rows/rating_bar.dart';
 import 'package:monasba/widgets/rows/rating_stars.dart';
@@ -71,6 +72,15 @@ class DraggableSheetHallReview extends StatelessWidget {
               width: 17.2.w,
               fontSize: 12.sp,
               buttonRaduis: 5,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const HallPage(title: 'Hall Page', rate: '4.5'),
+                  ),
+                );
+              },
             ),
             SizedBox(height: 12.7.h),
           ],

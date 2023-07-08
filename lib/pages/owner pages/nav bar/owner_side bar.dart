@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:monasba/pages/owner%20pages/reservation%20user/reservation_user_page.dart';
 import 'package:monasba/pages/user%20pages/contact%20us%20pages/contact_us_page_one.dart';
 import 'package:monasba/pages/user%20pages/registeration%20pages/login_page.dart';
 import 'package:monasba/pages/user%20pages/sidebar%20pages/notification_page.dart';
-import 'package:monasba/pages/user%20pages/sidebar%20pages/reservation%20pages/reservation_page.dart';
 import 'package:monasba/widgets/containers/side_bar_item.dart';
 import 'package:monasba/widgets/nav%20bar/app_navbar.dart';
 import 'package:sizer/sizer.dart';
@@ -14,7 +14,8 @@ class OwnerSideBar extends StatefulWidget {
   State<OwnerSideBar> createState() => _OwnerSideBarState();
 }
 
-class _OwnerSideBarState extends State<OwnerSideBar> with TickerProviderStateMixin {
+class _OwnerSideBarState extends State<OwnerSideBar>
+    with TickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> slideAnimation;
 
@@ -136,7 +137,7 @@ class _OwnerSideBarState extends State<OwnerSideBar> with TickerProviderStateMix
                       icon: 'assets/icons/sidebar icons/calendar_duotone.svg',
                       hasNotifications: true,
                       onTap: () {
-                        Navigator.pushNamed(context, ReservationPage.id);
+                        Navigator.pushNamed(context, ReservationUserPage.id);
                       },
                     ),
                     SideBarItem(

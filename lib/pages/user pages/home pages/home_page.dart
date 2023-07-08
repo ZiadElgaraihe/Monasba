@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monasba/constants.dart';
-import 'package:monasba/pages/user%20pages/place%20pages/place_page.dart';
 import 'package:monasba/widgets/rows/search_filter_row.dart';
 import 'package:monasba/widgets/stacks/place_stack.dart';
 import 'package:monasba/widgets/texts/page_definition.dart';
@@ -62,17 +61,7 @@ class HomePage extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                   SizedBox(height: 3.8.h),
-                  PlaceStack(
-                      title: 'Place Name',
-                      orientation: orientation,
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const PlacePage(title: 'Place Name'),
-                            ));
-                      }),
+                  PlaceStack(orientation: orientation),
                 ],
               ),
             ),

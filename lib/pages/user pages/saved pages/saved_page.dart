@@ -23,8 +23,11 @@ class SavedPage extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          const PlacePage(title: 'Name of Place'),
+                      builder: (context) => const PlacePage(
+                          title: 'Name of Place',
+                          image: 'assets/images/hall 1.png',
+                          address: 'Port Said',
+                          rate: '5.0'),
                     ));
               }),
         ),

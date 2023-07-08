@@ -6,6 +6,7 @@ import 'package:monasba/network/remote/dio_helper.dart';
 import 'package:monasba/network/local/cache_helper.dart';
 import 'package:monasba/cubits/login/login_cubit.dart';
 import 'package:monasba/pages/owner%20pages/calender/ownercalender.dart';
+import 'package:monasba/pages/owner%20pages/reservation%20user/reservation_info_page.dart';
 import 'package:monasba/pages/user%20pages/contact%20us%20pages/contact_us_page_one.dart';
 import 'package:monasba/pages/user%20pages/contact%20us%20pages/contact_us_page_two.dart';
 import 'package:monasba/pages/user%20pages/home%20pages/search_page.dart';
@@ -107,6 +108,7 @@ class Monasba extends StatelessWidget {
               SuccessPage.id: (context) => const SuccessPage(),
               ReserveHallPage.id: (context) => const ReserveHallPage(),
               ReservationUserPage.id: (context) => const ReservationUserPage(),
+              ReservationInfoPage.id: (context) => const ReservationInfoPage(),
             },
             //The starting page
             initialRoute: AppNavBar.id,

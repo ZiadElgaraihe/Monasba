@@ -8,7 +8,7 @@ import 'package:sizer/sizer.dart';
 class ReservationUserPage extends StatelessWidget {
   const ReservationUserPage({super.key});
 
-  static String id = '/reservation page';
+  static String id = '/reservation user page';
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +26,9 @@ class ReservationUserPage extends StatelessWidget {
               padding: EdgeInsets.only(left: 4.4.w),
               child: ElevatedButton(
                 style: ButtonStyle(
-                    padding: MaterialStatePropertyAll(EdgeInsets.zero),
+                    padding: const MaterialStatePropertyAll(EdgeInsets.zero),
                     backgroundColor:
-                        MaterialStatePropertyAll(Color(0xFFED9526)),
+                        const MaterialStatePropertyAll(Color(0xFFED9526)),
                     fixedSize: MaterialStatePropertyAll(Size(8.8.w, 5.h))),
                 onPressed: () {},
                 child: SvgPicture.asset(

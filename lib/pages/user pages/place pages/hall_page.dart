@@ -11,9 +11,9 @@ import 'package:monasba/widgets/texts/page_title.dart';
 import 'package:sizer/sizer.dart';
 
 class HallPage extends StatelessWidget {
-  const HallPage({super.key, required this.title});
+  const HallPage({super.key, required this.title, required this.rate});
 
-  final String title;
+  final String title, rate;
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +81,7 @@ class HallPage extends StatelessWidget {
                       ),
                     ),
                     const Spacer(),
-                    RateRow(rate: '4.5', fontSize: 14.sp, iconHeight: 2.5.h),
+                    RateRow(rate: rate, fontSize: 14.sp, iconHeight: 2.5.h),
                   ],
                 ),
                 SizedBox(height: 2.8.h),

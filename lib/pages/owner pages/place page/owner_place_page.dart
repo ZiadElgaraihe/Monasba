@@ -7,30 +7,27 @@ import 'package:monasba/widgets/texts/page_definition.dart';
 import 'package:monasba/widgets/texts/page_title.dart';
 import 'package:sizer/sizer.dart';
 
-import 'owner_hall_page.dart';
-
 class OwnerPlacePage extends StatelessWidget {
-  const OwnerPlacePage({super.key,   this.title});
+  const OwnerPlacePage({super.key, this.title});
 
   final String? title;
-    static String id = '/Owner place page';
-
+  static String id = '/Owner place page';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: lightBackground,
-      appBar:  AppBarDesign(pageMode: PageMode.light,actions: [TextButton(
-            onPressed: () {
+      appBar: AppBarDesign(pageMode: PageMode.light, actions: [
+        TextButton(
+          onPressed: () {
             //  Navigator.pushNamed(context, .id);
-            },
-            child: Text(
-              'Edit',
-              style: TextStyle(fontSize: 14.sp, color: Colors.black),
-            ),
+          },
+          child: Text(
+            'Edit',
+            style: TextStyle(fontSize: 14.sp, color: Colors.black),
           ),
-          ]
-          ),
+        ),
+      ]),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 4.4.w),
@@ -80,17 +77,7 @@ class OwnerPlacePage extends StatelessWidget {
                 style: TextStyle(fontSize: 13.sp),
               ),
               SizedBox(height: 3.8.h),
-              PlaceStack(
-                  title: 'Hall Name',
-                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const OwnerHallPage(title: 'Hall Page'),
-                        ));
-                  }
-                  ),
+              const PlaceStack(),
               SizedBox(height: 10.h),
             ],
           ),

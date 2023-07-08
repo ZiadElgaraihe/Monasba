@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:monasba/constants.dart';
-import 'package:monasba/pages/user%20pages/place%20pages/place_page.dart';
+import 'package:monasba/pages/user%20pages/place%20pages/hall_page.dart';
 import 'package:monasba/widgets/rows/location_row.dart';
 import 'package:monasba/widgets/rows/rate_row.dart';
 import 'package:monasba/widgets/texts/place_name_text.dart';
 import 'package:sizer/sizer.dart';
 
-class PlaceStack extends StatelessWidget {
-  const PlaceStack({super.key, this.orientation});
+class HallStack extends StatelessWidget {
+  const HallStack({super.key, this.orientation});
 
   final Orientation? orientation;
 
@@ -21,18 +21,14 @@ class PlaceStack extends StatelessWidget {
           crossAxisSpacing: 6.7.w,
           mainAxisExtent: 32.h,
           crossAxisCount: orientation == Orientation.landscape ? 3 : 2),
-      itemCount: places.length,
+      itemCount: halls.length,
       itemBuilder: (context, index) => GestureDetector(
         onTap: () {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => PlacePage(
-                  title: places[index]['place name']!,
-                  image: places[index]['img']!,
-                  address: places[index]['city']!,
-                  rate: places[index]['rate']!,
-                ),
+                builder: (context) =>
+                    HallPage(title: halls[index]['hall name']!, rate: halls[index]['rate']!),
               ));
         },
         child: Stack(
@@ -48,20 +44,20 @@ class PlaceStack extends StatelessWidget {
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
-                      image: AssetImage(places[index]['img']!),
+                      image: AssetImage(halls[index]['img']!),
                       fit: BoxFit.fill,
                     ),
                   ),
                 ),
                 SizedBox(height: 1.3.h),
-                PlaceNameText(title: places[index]['place name']!),
+                PlaceNameText(title: halls[index]['hall name']!),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    LocationRow(city: places[index]['city']!),
+                    LocationRow(city: halls[index]['city']!),
                     const Spacer(),
                     RateRow(
-                        rate: places[index]['rate']!,
+                        rate: halls[index]['rate']!,
                         iconHeight: 1.9.h,
                         fontSize: 10.sp),
                   ],

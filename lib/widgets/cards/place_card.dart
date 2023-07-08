@@ -26,7 +26,7 @@ class PlaceCard extends StatelessWidget {
               height: 9.5.h,
               width: 16.9.w,
               child: const CircleAvatar(
-                backgroundImage: AssetImage('assets/images/Rectangle 4233.png'),
+                backgroundImage: AssetImage('assets/images/hall 1.png'),
               ),
             ),
             SizedBox(width: 4.7.w),

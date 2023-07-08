@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:monasba/constants.dart';
-import 'package:monasba/pages/user%20pages/place%20pages/hall_page.dart';
+import 'package:monasba/widgets/stacks/hall_stack.dart';
 import 'package:sizer/sizer.dart';
 import '../../../widgets/rows/rate_row.dart';
-import '../../../widgets/stacks/place_stack.dart';
 import '../../../widgets/texts/page_definition.dart';
 import '../../../widgets/texts/page_title.dart';
 
@@ -86,16 +85,7 @@ class OwnerHome extends StatelessWidget {
                 style: TextStyle(fontSize: 13.sp),
               ),
               SizedBox(height: 3.8.h),
-              PlaceStack(
-                  title: 'Hall Name',
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const HallPage(title: 'Hall Page'),
-                        ));
-                  }),
+              const HallStack(),
               SizedBox(height: 10.h),
             ],
           ),
