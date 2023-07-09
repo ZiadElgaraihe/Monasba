@@ -10,7 +10,7 @@ Monasba is a mobile app built with Flutter that allows users to reserve halls fo
     • Online hall reservation system
     • Owner features that allow full control over their halls
 
-### Technologies Used
+## Technologies Used
 
 This app was built using the following technologies:
 
@@ -42,7 +42,7 @@ In addition, the app uses several third-party packages to provide additional fun
     • syncfusion_flutter_datepicker
     • table_calendar
 
-#### Installation and Usage
+## Installation and Usage
 
 To use Monasba, follow these steps:
 
@@ -51,7 +51,7 @@ To use Monasba, follow these steps:
     3. Run flutter pub get to install the necessary packages.
     4. Run flutter run to launch the app.
 
-##### Contributing
+## Contributing
 
 If you would like to contribute to Monasba, please follow these steps:
 
@@ -61,11 +61,11 @@ If you would like to contribute to Monasba, please follow these steps:
     4. Push your changes to your fork: git push origin my-feature-branch
     5. Create a new Pull Request and describe your changes.
 
-###### License
+## License
 
 Monasba is licensed under the MIT License. See the LICENSE file for details.
 
-###### Contact
+## Contact
 
 If you have any questions or comments, please feel free to contact us at 
 
