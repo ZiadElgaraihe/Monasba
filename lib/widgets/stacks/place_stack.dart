@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monasba/constants.dart';
+import 'package:monasba/network/models/place_model.dart';
 import 'package:monasba/pages/user%20pages/place%20pages/place_page.dart';
 import 'package:monasba/widgets/rows/location_row.dart';
 import 'package:monasba/widgets/rows/rate_row.dart';
@@ -8,9 +9,10 @@ import 'package:monasba/widgets/texts/place_name_text.dart';
 import 'package:sizer/sizer.dart';
 
 class PlaceStack extends StatelessWidget {
-  const PlaceStack({super.key, this.orientation});
+  const PlaceStack({super.key, this.orientation, this.places});
 
   final Orientation? orientation;
+  final List<PlaceModel>? places;
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +23,26 @@ class PlaceStack extends StatelessWidget {
           crossAxisSpacing: 6.7.w,
           mainAxisExtent: 32.h,
           crossAxisCount: orientation == Orientation.landscape ? 3 : 2),
-      itemCount: places.length,
+      itemCount: places != null ? places!.length : listOfPlaces.length,
       itemBuilder: (context, index) => GestureDetector(
         onTap: () {
           Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => PlacePage(
-                  title: places[index]['place name']!,
-                  image: places[index]['img']!,
-                  address: places[index]['city']!,
-                  rate: places[index]['rate']!,
+                  title: places != null
+                      ? places![index].placeName
+                      : listOfPlaces[index]['place name']!,
+                  image: places != null
+                      ? places![index].image
+                      : listOfPlaces[index]['img']!,
+                  address: 'Port Said - Egypt',
+                  rate: places != null
+                      ? '${places![index].rate}'
+                      : listOfPlaces[index]['rate']!,
+                  description: places != null
+                      ? places![index].description
+                      : 'Lorem ipsum dolor sit amet consectetur. Volutpat sed sem tellus tellus quisque. Blandit praesent fusce vulputate nulla egestas ultrices diam. Lectus nulla ipsum turpis sed enim eu nibh amet sed.',
                 ),
               ));
         },
@@ -48,20 +59,27 @@ class PlaceStack extends StatelessWidget {
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
-                      image: AssetImage(places[index]['img']!),
+                      image: AssetImage(places != null
+                          ? places![index].image
+                          : listOfPlaces[0]['img']!),
                       fit: BoxFit.fill,
                     ),
                   ),
                 ),
                 SizedBox(height: 1.3.h),
-                PlaceNameText(title: places[index]['place name']!),
+                PlaceNameText(
+                    title: places != null
+                        ? places![index].placeName
+                        : listOfPlaces[index]['place name']!),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    LocationRow(city: places[index]['city']!),
+                    const LocationRow(city: 'Port Said'),
                     const Spacer(),
                     RateRow(
-                        rate: places[index]['rate']!,
+                        rate: places != null
+                            ? '${places![index].rate}'
+                            : listOfPlaces[index]['rate']!,
                         iconHeight: 1.9.h,
                         fontSize: 10.sp),
                   ],

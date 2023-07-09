@@ -42,14 +42,18 @@ class SearchPage extends StatelessWidget {
                         asset: 'assets/icons/bookmarks/bookmark_fill.svg',
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const PlacePage(
-                                    title: 'Name of Place',
-                                    image: 'assets/images/hall 1.png',
-                                    address: 'Port Said',
-                                    rate: '5.0'),
-                              ));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const PlacePage(
+                                title: 'Name of Place',
+                                image: 'assets/images/hall 1.png',
+                                address: 'Port Said',
+                                rate: '5.0',
+                                description:
+                                    'Lorem ipsum dolor sit amet consectetur. Volutpat sed sem tellus tellus quisque. Blandit praesent fusce vulputate nulla egestas ultrices diam. Lectus nulla ipsum turpis sed enim eu nibh amet sed.',
+                              ),
+                            ),
+                          );
                         },
                       ),
                     ),

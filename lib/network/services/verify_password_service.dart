@@ -5,7 +5,7 @@ class VerifyPasswordService {
     await Api().post(
       isSignUp: false,
       isContentJson: true,
-      restOfUrl: 'verifyResetCode',
+      restOfUrl: 'auth/verifyResetCode',
       body: {
         'resetCode': resetCode,
       },

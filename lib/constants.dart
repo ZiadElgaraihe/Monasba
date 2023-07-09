@@ -111,7 +111,7 @@ List<Map<String, String>> personsAndPrices = [
   },
 ];
 
-List<Map<String, String>> places = [
+List<Map<String, String>> listOfPlaces = [
   {
     'place name': 'Grand Lamour',
     'city': 'Port Said',

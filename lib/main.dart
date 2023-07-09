@@ -127,7 +127,7 @@ class Monasba extends StatelessWidget {
               ReservationInfoPage.id: (context) => const ReservationInfoPage(),
             },
             //The starting page
-            initialRoute: LogoSplashScreen.id,
+            initialRoute: AppNavBar.id,
           ),
         ),
       ),

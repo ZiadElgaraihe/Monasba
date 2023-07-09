@@ -6,7 +6,7 @@ class ForgetPasswordService {
     Map<String, dynamic> data = await Api().post(
       isSignUp: false,
       isContentJson: true,
-      restOfUrl: 'forgotPassword',
+      restOfUrl: 'auth/forgotPassword',
       body: {
         'flag': 'email',
         'email': email,

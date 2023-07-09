@@ -8,7 +8,7 @@ class ResendForgetPasswordService {
     Map<String, dynamic> data = await Api().post(
       isSignUp: false,
       isContentJson: false,
-      restOfUrl: 'resendForgetPassword',
+      restOfUrl: 'auth/resendForgetPassword',
       token: token,
     );
     return ResetPasswordModel.fromJson(data: data);
