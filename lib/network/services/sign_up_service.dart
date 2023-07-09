@@ -12,7 +12,7 @@ class SignUpService {
     required String city,
     required String phoneNumber,
   }) async {
-    await Api().post(isSignUp: isSignUp, restOfUrl: 'signup', body: {
+    await Api().post(isSignUp: isSignUp,isContentJson: true, restOfUrl: 'signup', body: {
       'firstName': firstName,
       'lastName': lastName,
       'userName': userName,

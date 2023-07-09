@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:monasba/network/models/reset_password_model.dart';
-import 'package:monasba/network/services/forget_password_service.dart';
+import 'package:monasba/network/services/reset_password_service.dart';
 
 part 'reset_password_state.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   ResetPasswordCubit() : super(ResetPasswordInitial());
 
-  ResetPasswordModel? resetPasswordModel;
-
-  Future<void> forgetPassword({required String email}) async {
+  Future<void> resetPassword({
+    required String newPassword,
+    required String confirmPassword,
+    required String token,
+  }) async {
     emit(ResetPasswordLoading());
     try {
-      resetPasswordModel = await ForgetPasswordService()
-          .forgetPassword(isSignUp: false, email: email);
+      await ResetPasswordService().resetPassword(
+        newPassword: newPassword,
+        confirmPassword: confirmPassword,
+        token: token,
+      );
       emit(ResetPasswordSuccess());
     } catch (error) {
       emit(
-        ResetPasswordFailed(
+        ResetPasswordFailure(
           error: error.toString().replaceFirst('Exception: ', ''),
         ),
       );

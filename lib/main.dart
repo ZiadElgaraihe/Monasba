@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:monasba/cubits/forget_password_cubit/forget_password_cubit.dart';
+import 'package:monasba/cubits/resend_forget_password_cubit/resend_forget_password_cubit.dart';
 import 'package:monasba/cubits/reservation_cubit/reservation_cubit.dart';
 import 'package:monasba/cubits/reset_password_cubit/reset_password_cubit.dart';
 import 'package:monasba/cubits/sign_up_cubit/sign_up_cubit_cubit.dart';
+import 'package:monasba/cubits/verify_password_cubit/verify_password_cubit.dart';
 import 'package:monasba/network/remote/dio_helper.dart';
 import 'package:monasba/network/local/cache_helper.dart';
 import 'package:monasba/cubits/login/login_cubit.dart';
@@ -61,6 +64,15 @@ class Monasba extends StatelessWidget {
         ),
         BlocProvider<ReservationCubit>(
           create: (context) => ReservationCubit(),
+        ),
+        BlocProvider<ForgetPasswordCubit>(
+          create: (context) => ForgetPasswordCubit(),
+        ),
+        BlocProvider<VerifyPasswordCubit>(
+          create: (context) => VerifyPasswordCubit(),
+        ),
+        BlocProvider<ResendForgetPasswordCubit>(
+          create: (context) => ResendForgetPasswordCubit(),
         ),
         BlocProvider<ResetPasswordCubit>(
           create: (context) => ResetPasswordCubit(),

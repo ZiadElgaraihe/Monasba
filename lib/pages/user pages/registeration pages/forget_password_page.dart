@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:monasba/constants.dart';
-import 'package:monasba/cubits/reset_password_cubit/reset_password_cubit.dart';
+import 'package:monasba/cubits/forget_password_cubit/forget_password_cubit.dart';
+import 'package:monasba/cubits/resend_forget_password_cubit/resend_forget_password_cubit.dart';
 import 'package:monasba/pages/user%20pages/registeration%20pages/email_verification_code_page.dart';
 import 'package:monasba/widgets/appbars/appbar_design.dart';
 import 'package:monasba/widgets/buttons/elevated%20buttons/colored_button.dart';
@@ -26,19 +27,20 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   final TextEditingController _emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return BlocListener<ResetPasswordCubit, ResetPasswordState>(
+    return BlocListener<ForgetPasswordCubit, ForgetPasswordState>(
       listener: (context, state) {
-        if (state is ResetPasswordLoading) {
+        if (state is ForgetPasswordLoading) {
           showDialog(
             barrierDismissible: false,
             context: context,
             builder: (context) =>
                 const Center(child: CircularProgressIndicator()),
           );
-        } else if (state is ResetPasswordSuccess) {
+        } else if (state is ForgetPasswordSuccess) {
           Navigator.pop(context);
+          context.read<ResendForgetPasswordCubit>().resetPasswordModel = null;
           Navigator.pushNamed(context, EmailVerificationCodePage.id);
-        } else if (state is ResetPasswordFailed) {
+        } else if (state is ForgetPasswordFailure) {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
             errorSnackBar(msg: state.error),
@@ -85,7 +87,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                       pageMode: PageMode.dark,
                       onPressed: () async {
                         await context
-                            .read<ResetPasswordCubit>()
+                            .read<ForgetPasswordCubit>()
                             .forgetPassword(email: _emailController.text);
                       }),
                   SizedBox(height: 5.h),

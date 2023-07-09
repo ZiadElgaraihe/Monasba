@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class OtpTextFormField extends StatefulWidget {
-  const OtpTextFormField({super.key});
+  const OtpTextFormField({super.key, required this.otpControllers});
+
+  final List<TextEditingController> otpControllers;
 
   @override
   State<OtpTextFormField> createState() => _OtpTextFormFieldState();
@@ -16,8 +18,8 @@ class _OtpTextFormFieldState extends State<OtpTextFormField> {
             'text color': Colors.white
           });
 
-  List<TextEditingController> controllers =
-      List.generate(4, (index) => TextEditingController());
+  // List<TextEditingController> controllers =
+  //     List.generate(4, (index) => TextEditingController());
 
   List<FocusNode> focusNodes = List.generate(4, (index) => FocusNode());
   List<ValueNotifier<bool>> isFocused =
@@ -38,7 +40,7 @@ class _OtpTextFormFieldState extends State<OtpTextFormField> {
             height: 8.8.h,
             width: 15.6.w,
             child: TextFormField(
-              controller: controllers[index],
+              controller: widget.otpControllers[index],
               maxLength: 1,
               focusNode: focusNodes[index],
               onTap: () {
@@ -48,7 +50,7 @@ class _OtpTextFormFieldState extends State<OtpTextFormField> {
                     colors[index]['background color'] = const Color(0xFFb0b0b0);
                     colors[index]['text color'] = Colors.white;
                   } else {
-                    if (controllers[index].value.text.isNotEmpty) {
+                    if (widget.otpControllers[index].value.text.isNotEmpty) {
                       colors[index]['background color'] = Colors.white;
                       colors[index]['text color'] = Colors.black;
                     }
