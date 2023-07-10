@@ -4,6 +4,7 @@ import 'package:monasba/cubits/forget_password_cubit/forget_password_cubit.dart'
 import 'package:monasba/cubits/resend_forget_password_cubit/resend_forget_password_cubit.dart';
 import 'package:monasba/cubits/reservation_cubit/reservation_cubit.dart';
 import 'package:monasba/cubits/reset_password_cubit/reset_password_cubit.dart';
+import 'package:monasba/cubits/saved_places_cubit/saved_places_cubit.dart';
 import 'package:monasba/cubits/sign_up_cubit/sign_up_cubit_cubit.dart';
 import 'package:monasba/cubits/verify_password_cubit/verify_password_cubit.dart';
 import 'package:monasba/network/remote/dio_helper.dart';
@@ -76,6 +77,9 @@ class Monasba extends StatelessWidget {
         ),
         BlocProvider<ResetPasswordCubit>(
           create: (context) => ResetPasswordCubit(),
+        ),
+        BlocProvider<SavedPlacesCubit>(
+          create: (context) => SavedPlacesCubit(),
         ),
       ],
       child: MultiProvider(

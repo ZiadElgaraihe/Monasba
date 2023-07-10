@@ -39,8 +39,9 @@ class SearchPage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           vertical: 1.9.h, horizontal: 2.2.w),
                       child: PlaceCard(
+                        onCircularButtonTap: () {},
                         asset: 'assets/icons/bookmarks/bookmark_fill.svg',
-                        onTap: () {
+                        onCardTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(

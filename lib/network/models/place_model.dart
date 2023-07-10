@@ -3,7 +3,7 @@ class PlaceModel {
   final String owner;
   final String placeName;
   final String address;
-  final int rate;
+  final String rate;
   final String image;
   final String description;
   final List<dynamic> halls;
@@ -25,7 +25,7 @@ class PlaceModel {
       owner: data['owner'],
       placeName: data['placeName'],
       address: data['address'],
-      rate: data['starNumber'],
+      rate: '${data['starNumber']}.0',
       image: 'assets/images/places/${data['cover']}',
       description: data['desc'],
       halls: data['halls'],

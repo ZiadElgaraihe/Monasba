@@ -111,51 +111,6 @@ List<Map<String, String>> personsAndPrices = [
   },
 ];
 
-List<Map<String, String>> listOfPlaces = [
-  {
-    'place name': 'Grand Lamour',
-    'city': 'Port Said',
-    'rate': '5.0',
-    'img': 'assets/images/hall 1.png',
-  },
-  {
-    'place name': 'Alexandria Grand',
-    'city': 'Alexandria',
-    'rate': '4.5',
-    'img': 'assets/images/hall 4.png'
-  },
-  {
-    'place name': 'Nile Plaza',
-    'city': 'Cairo',
-    'rate': '4.0',
-    'img': 'assets/images/hall 5.png'
-  },
-  {
-    'place name': 'Luxor Plaza',
-    'city': 'Luxor',
-    'rate': '3.5',
-    'img': 'assets/images/hall 3.png'
-  },
-  {
-    'place name': 'Pharaoh\'s Court',
-    'city': 'Luxor',
-    'rate': '3.0',
-    'img': 'assets/images/hall 7.png'
-  },
-  {
-    'place name': 'Sphinx Hall',
-    'city': 'Cairo',
-    'rate': '4.5',
-    'img': 'assets/images/hall 2.png'
-  },
-  {
-    'place name': 'Cleopatra Ballroom',
-    'city': 'Alexandria',
-    'rate': '4.5',
-    'img': 'assets/images/hall 6.png'
-  },
-];
-
 List<Map<String, dynamic>> halls = [
   {
     'hall name': 'Sofitel Winter',
