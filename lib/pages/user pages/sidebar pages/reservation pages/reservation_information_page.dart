@@ -92,7 +92,7 @@ class ReservationInformationPage extends StatelessWidget {
               SizedBox(height: 3.8.h),
               const ProfileDataTextFormField(
                 label: 'Paying off',
-                initValue: '2600 EGP',
+                initValue: '26000 EGP',
               ),
               SizedBox(height: 5.h),
             ],

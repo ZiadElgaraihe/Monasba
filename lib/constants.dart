@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:sizer/sizer.dart';
 
 const Color darkBackground = Color(0xFF000000);
@@ -37,6 +38,36 @@ const List<String> cities = [
 const List<String> genders = ['None', 'Male', 'Female'];
 
 const List<String> payWith = ['Master Card', 'Credit Card', 'Paypal'];
+
+final List<LatLng> latLng = [
+  const LatLng(31.273027, 32.282245), //جراند لامور
+  const LatLng(31.273459, 32.278385), //بوريفاج
+  const LatLng(31.273707, 32.280204), //لاجولي
+  const LatLng(31.272385, 32.293086), //الزفاف الملكي
+  const LatLng(31.270677, 32.310852), //بونسور
+  const LatLng(31.268068, 32.301523), //الأوركيدا
+  const LatLng(31.273354, 32.295463), //الؤلؤة
+  const LatLng(31.266472, 32.303633), //سهر الليالي
+  const LatLng(31.260390, 32.300456), //الفرنسية
+  const LatLng(31.272855, 32.293532), //اكاسيا
+  const LatLng(31.272157, 32.294702), //كونكورد
+  const LatLng(31.271859, 32.294214), //فور سيزون
+];
+
+List<String> ids = [
+  '64a34c2d71f86a31d8168bf9',//جراند لامور
+  '64a3491771f86a31d8168bcf',//بوريفاج
+  '64a3336e71f86a31d8168bb5',//لاجولي
+  '64a332f071f86a31d8168bac',//الزفاف الملكي
+  '64a3479071f86a31d8168bbd',//بونسور
+  '64a3484371f86a31d8168bc3',//الأوركيدا
+  '64a348d371f86a31d8168bc9',//الؤلؤة
+  '64a349cf71f86a31d8168bd8',//سهر الليالي
+  '64a34a3971f86a31d8168be1',//الفرنسية
+  '64a34eba71f86a31d8168c08',//اكاسيا
+  '64a34b8271f86a31d8168bf0',//كونكورد
+  '64a34af971f86a31d8168be7',//فور سيزون
+];
 
 const List<String> occasions = [
   "All",
@@ -108,51 +139,6 @@ List<Map<String, String>> personsAndPrices = [
   {
     'number of persons': '200',
     'price': '18500',
-  },
-];
-
-List<Map<String, String>> places = [
-  {
-    'place name': 'Grand Lamour',
-    'city': 'Port Said',
-    'rate': '5.0',
-    'img': 'assets/images/hall 1.png',
-  },
-  {
-    'place name': 'Alexandria Grand',
-    'city': 'Alexandria',
-    'rate': '4.5',
-    'img': 'assets/images/hall 4.png'
-  },
-  {
-    'place name': 'Nile Plaza',
-    'city': 'Cairo',
-    'rate': '4.0',
-    'img': 'assets/images/hall 5.png'
-  },
-  {
-    'place name': 'Luxor Plaza',
-    'city': 'Luxor',
-    'rate': '3.5',
-    'img': 'assets/images/hall 3.png'
-  },
-  {
-    'place name': 'Pharaoh\'s Court',
-    'city': 'Luxor',
-    'rate': '3.0',
-    'img': 'assets/images/hall 7.png'
-  },
-  {
-    'place name': 'Sphinx Hall',
-    'city': 'Cairo',
-    'rate': '4.5',
-    'img': 'assets/images/hall 2.png'
-  },
-  {
-    'place name': 'Cleopatra Ballroom',
-    'city': 'Alexandria',
-    'rate': '4.5',
-    'img': 'assets/images/hall 6.png'
   },
 ];
 

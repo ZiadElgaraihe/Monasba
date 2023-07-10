@@ -79,8 +79,7 @@ class _ReservationDropDownState extends State<ReservationDropDown> {
                                 borderRadius: BorderRadius.circular(12.5),
                                 image: const DecorationImage(
                                   fit: BoxFit.fill,
-                                  image: AssetImage(
-                                      'assets/images/Rectangle 4233.png'),
+                                  image: AssetImage('assets/images/hall 5.png'),
                                 ),
                               ),
                             ),

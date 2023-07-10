@@ -6,9 +6,17 @@ class PlaceNameText extends StatelessWidget {
 
   final String title;
 
+  String truncateText(String text, int maxCharacters) {
+    if (text.length <= maxCharacters) {
+      return text;
+    } else {
+      return '${text.split('').sublist(0, maxCharacters).join('')}...';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Text(title,
+    return Text(truncateText(title, 17),
         style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold));
   }
 }

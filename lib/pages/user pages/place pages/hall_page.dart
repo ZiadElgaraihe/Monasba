@@ -192,6 +192,16 @@ class HallPage extends StatelessWidget {
                               color: const Color(0xFFb0b0b0), fontSize: 10.sp),
                         ),
                       ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'comment',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 10.sp),
+                            )),
+                      )
                     ],
                   ),
                 ),

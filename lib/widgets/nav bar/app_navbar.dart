@@ -42,64 +42,65 @@ class _AppNavBarState extends State<AppNavBar> {
     return ValueListenableBuilder(
       valueListenable: currentIndex,
       builder: (context, value, child) => Scaffold(
-          key: _key,
-          drawerScrimColor: Colors.transparent,
-          drawer: const SideBar(),
-          extendBody: true, // appear the content under the clipped part
-          bottomNavigationBar: ClipPath(
-            clipper: Clipper(),
-            child: Container(
-              color: Colors.black,
-              alignment: Alignment.bottomCenter,
-              height: 14.7.h,
-              child: BottomNavigationBar(
-                showSelectedLabels: false,
-                showUnselectedLabels: false,
-                elevation: 0,
-                type: BottomNavigationBarType.fixed,
-                backgroundColor: Colors.transparent,
-                currentIndex: value,
-                onTap: (value) {
-                  currentIndex.value = value;
-                },
-                items: [
-                  BottomNavigationBarItem(
-                      label: '',
-                      icon: SvgPicture.asset(
-                          'assets/icons/navbar icons/home/home.svg',
-                          height: 4.h),
-                      activeIcon: SvgPicture.asset(
-                          'assets/icons/navbar icons/home/home_active.svg',
-                          height: 6.h)),
-                  BottomNavigationBarItem(
-                      label: '',
-                      icon: SvgPicture.asset(
-                          'assets/icons/navbar icons/map/map.svg',
-                          height: 4.h),
-                      activeIcon: SvgPicture.asset(
-                          'assets/icons/navbar icons/map/map_active.svg',
-                          height: 6.h)),
-                  BottomNavigationBarItem(
-                      label: '',
-                      icon: SvgPicture.asset(
-                          'assets/icons/navbar icons/saved/saved.svg',
-                          height: 4.h),
-                      activeIcon: SvgPicture.asset(
-                          'assets/icons/navbar icons/saved/saved_active.svg',
-                          height: 6.h)),
-                  BottomNavigationBarItem(
-                      label: '',
-                      icon: SvgPicture.asset(
-                          'assets/icons/navbar icons/profile/user_profile.svg',
-                          height: 4.h),
-                      activeIcon: SvgPicture.asset(
-                          'assets/icons/navbar icons/profile/user_profile_active.svg',
-                          height: 6.h)),
-                ],
-              ),
+        key: _key,
+        drawerScrimColor: Colors.transparent,
+        drawer: const SideBar(),
+        extendBody: true, // appear the content under the clipped part
+        bottomNavigationBar: ClipPath(
+          clipper: Clipper(),
+          child: Container(
+            color: Colors.black,
+            alignment: Alignment.bottomCenter,
+            height: 14.7.h,
+            child: BottomNavigationBar(
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              elevation: 0,
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: Colors.transparent,
+              currentIndex: value,
+              onTap: (value) {
+                currentIndex.value = value;
+              },
+              items: [
+                BottomNavigationBarItem(
+                    label: '',
+                    icon: SvgPicture.asset(
+                        'assets/icons/navbar icons/home/home.svg',
+                        height: 4.h),
+                    activeIcon: SvgPicture.asset(
+                        'assets/icons/navbar icons/home/home_active.svg',
+                        height: 6.h)),
+                BottomNavigationBarItem(
+                    label: '',
+                    icon: SvgPicture.asset(
+                        'assets/icons/navbar icons/map/map.svg',
+                        height: 4.h),
+                    activeIcon: SvgPicture.asset(
+                        'assets/icons/navbar icons/map/map_active.svg',
+                        height: 6.h)),
+                BottomNavigationBarItem(
+                    label: '',
+                    icon: SvgPicture.asset(
+                        'assets/icons/navbar icons/saved/saved.svg',
+                        height: 4.h),
+                    activeIcon: SvgPicture.asset(
+                        'assets/icons/navbar icons/saved/saved_active.svg',
+                        height: 6.h)),
+                BottomNavigationBarItem(
+                    label: '',
+                    icon: SvgPicture.asset(
+                        'assets/icons/navbar icons/profile/user_profile.svg',
+                        height: 4.h),
+                    activeIcon: SvgPicture.asset(
+                        'assets/icons/navbar icons/profile/user_profile_active.svg',
+                        height: 6.h)),
+              ],
             ),
           ),
-          body: navBarPages.elementAt(currentIndex.value)),
+        ),
+        body: navBarPages.elementAt(currentIndex.value),
+      ),
     );
   }
 }

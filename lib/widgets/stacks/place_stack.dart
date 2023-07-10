@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:monasba/constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:monasba/cubits/saved_places_cubit/saved_places_cubit.dart';
+import 'package:monasba/network/models/place_model.dart';
 import 'package:monasba/pages/user%20pages/place%20pages/place_page.dart';
+import 'package:monasba/widgets/containers/is_saved_container.dart';
 import 'package:monasba/widgets/rows/location_row.dart';
 import 'package:monasba/widgets/rows/rate_row.dart';
 import 'package:monasba/widgets/texts/place_name_text.dart';
 import 'package:sizer/sizer.dart';
 
 class PlaceStack extends StatelessWidget {
-  const PlaceStack({super.key, this.orientation});
+  const PlaceStack({super.key, this.orientation, required this.places});
 
   final Orientation? orientation;
+  final List<PlaceModel> places;
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +31,11 @@ class PlaceStack extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => PlacePage(
-                  title: places[index]['place name']!,
-                  image: places[index]['img']!,
-                  address: places[index]['city']!,
-                  rate: places[index]['rate']!,
+                  title: places[index].placeName,
+                  image: places[index].image,
+                  address: 'Port Said - Egypt',
+                  rate: places[index].rate,
+                  description: places[index].description,
                 ),
               ));
         },
@@ -48,20 +52,20 @@ class PlaceStack extends StatelessWidget {
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
-                      image: AssetImage(places[index]['img']!),
+                      image: AssetImage(places[index].image),
                       fit: BoxFit.fill,
                     ),
                   ),
                 ),
                 SizedBox(height: 1.3.h),
-                PlaceNameText(title: places[index]['place name']!),
+                PlaceNameText(title: places[index].placeName),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    LocationRow(city: places[index]['city']!),
+                    const LocationRow(city: 'Port Said'),
                     const Spacer(),
                     RateRow(
-                        rate: places[index]['rate']!,
+                        rate: places[index].rate,
                         iconHeight: 1.9.h,
                         fontSize: 10.sp),
                   ],
@@ -71,18 +75,16 @@ class PlaceStack extends StatelessWidget {
             Positioned(
               top: 1.3.h,
               right: 2.2.w,
-              child: Container(
-                width: 8.3.w,
-                height: 4.7.h,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xFF343434),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(0.5.h),
-                  child: SvgPicture.asset(
-                      'assets/icons/bookmarks/bookmark_fill_active.svg'),
-                ),
+              child: IsSavedContainer(
+                onTap: () {
+                  context
+                      .read<SavedPlacesCubit>()
+                      .addAndRemovePlaces(placeModel: places[index]);
+                },
+                isSaved: context
+                    .read<SavedPlacesCubit>()
+                    .savedPlaces
+                    .any((savedPlace) => savedPlace.id == places[index].id),
               ),
             ),
           ],

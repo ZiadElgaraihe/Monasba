@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:monasba/cubits/forget_password_cubit/forget_password_cubit.dart';
+import 'package:monasba/cubits/get_one_place_cubitcubit/get_one_place_cubit.dart';
 import 'package:monasba/cubits/resend_forget_password_cubit/resend_forget_password_cubit.dart';
 import 'package:monasba/cubits/reservation_cubit/reservation_cubit.dart';
 import 'package:monasba/cubits/reset_password_cubit/reset_password_cubit.dart';
+import 'package:monasba/cubits/saved_places_cubit/saved_places_cubit.dart';
 import 'package:monasba/cubits/sign_up_cubit/sign_up_cubit_cubit.dart';
 import 'package:monasba/cubits/verify_password_cubit/verify_password_cubit.dart';
 import 'package:monasba/network/remote/dio_helper.dart';
@@ -38,12 +40,15 @@ import 'package:monasba/providers/filter_provider.dart';
 import 'package:monasba/providers/gender_dropdown_provider.dart';
 import 'package:monasba/providers/location_dropdown_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 
 import 'pages/owner pages/reservation user/reservation_user_page.dart';
 
+SharedPreferences? prefs;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  prefs = await SharedPreferences.getInstance();
   await DioHelper.init();
   CacheHelpr.init;
   runApp(const Monasba());
@@ -76,6 +81,12 @@ class Monasba extends StatelessWidget {
         ),
         BlocProvider<ResetPasswordCubit>(
           create: (context) => ResetPasswordCubit(),
+        ),
+        BlocProvider<SavedPlacesCubit>(
+          create: (context) => SavedPlacesCubit(),
+        ),
+        BlocProvider<GetOnePlaceCubit>(
+          create: (context) => GetOnePlaceCubit(),
         ),
       ],
       child: MultiProvider(
@@ -127,7 +138,7 @@ class Monasba extends StatelessWidget {
               ReservationInfoPage.id: (context) => const ReservationInfoPage(),
             },
             //The starting page
-            initialRoute: LogoSplashScreen.id,
+            initialRoute: AppNavBar.id,
           ),
         ),
       ),

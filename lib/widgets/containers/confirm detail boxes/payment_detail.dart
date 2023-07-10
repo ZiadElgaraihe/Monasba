@@ -34,7 +34,7 @@ class PaymentDetails extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  reservationCubit.expirationDate ?? 'Expiration date : N/A',
+                  reservationCubit.expirationDate ?? 'N/A',
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 14.sp,
@@ -42,7 +42,7 @@ class PaymentDetails extends StatelessWidget {
                 ),
                 SizedBox(width: 35.6.w),
                 Text(
-                  reservationCubit.securityCode ?? 'Security code : N/A',
+                  reservationCubit.securityCode ?? 'N/A',
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 14.sp,

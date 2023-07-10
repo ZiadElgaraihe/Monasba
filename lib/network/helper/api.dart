@@ -2,13 +2,16 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class Api {
-  final String _baseUrl = 'http://192.168.1.3:2000/api/v1/auth/';
-  Future<Map<String, dynamic>> post(
-      {required bool isSignUp,
-      required bool isContentJson,
-      required String restOfUrl,
-      Map<String, dynamic>? body,
-      String? token}) async {
+  final String _baseUrl = 'http://192.168.1.11:2000/api/v1/';
+
+  //post request
+  Future<Map<String, dynamic>> post({
+    required bool isSignUp,
+    required bool isContentJson,
+    required String restOfUrl,
+    Map<String, dynamic>? body,
+    String? token,
+  }) async {
     Map<String, String>? headers;
 
     if (isContentJson && token != null) {
@@ -38,6 +41,33 @@ class Api {
       } else {
         throw Exception('${responseBody['message']}');
       }
+    }
+  }
+
+  //get request
+  Future<Map<String, dynamic>> get({
+    required String restOfUrl,
+    String? token,
+  }) async {
+    Map<String, String>? headers;
+
+    if (token != null) {
+      headers = {
+        'Authorization': 'Bearer $token',
+      };
+    }
+
+    http.Response response = await http.get(
+      Uri.parse('$_baseUrl$restOfUrl'),
+      headers: headers,
+    );
+
+    Map<String, dynamic> responseBody = jsonDecode(response.body);
+
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+      return responseBody;
+    } else {
+      throw Exception('${responseBody['message']}');
     }
   }
 }

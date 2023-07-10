@@ -6,7 +6,7 @@ class ResetPasswordService {
     await Api().post(
       isSignUp: false,
       isContentJson: true,
-      restOfUrl: 'resetPassword',
+      restOfUrl: 'auth/resetPassword',
       body: {
         'password': newPassword,
     'passwordConfirm': confirmPassword,

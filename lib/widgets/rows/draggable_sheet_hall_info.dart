@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monasba/constants.dart';
+import 'package:monasba/network/models/place_model.dart';
+import 'package:monasba/pages/user%20pages/place%20pages/place_page.dart';
 import 'package:monasba/widgets/buttons/elevated%20buttons/colored_button.dart';
 import 'package:monasba/widgets/columns/draggable_sheet_hall_images.dart';
 import 'package:monasba/widgets/rows/hall_main_info.dart';
@@ -8,16 +10,18 @@ import 'package:monasba/widgets/texts/page_title.dart';
 import 'package:sizer/sizer.dart';
 
 class DraggableSheetHallInfo extends StatelessWidget {
-  const DraggableSheetHallInfo({super.key, required this.orientation});
+  const DraggableSheetHallInfo(
+      {super.key, required this.orientation, required this.placeModel});
 
   final Orientation orientation;
+  final PlaceModel placeModel;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        DraggableSheetImages(orientation: orientation),
+        DraggableSheetImages(orientation: orientation, image: placeModel.image),
         orientation == Orientation.landscape
             ? SizedBox(
                 width: 15.h,
@@ -27,7 +31,7 @@ class DraggableSheetHallInfo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             PageTitle(
-              title: 'Grand Lamour',
+              title: placeModel.placeName,
               pageMode: PageMode.dark,
               fontSize: 14.sp,
             ),
@@ -35,7 +39,7 @@ class DraggableSheetHallInfo extends StatelessWidget {
             Row(
               children: [
                 RateRow(
-                  rate: '5.0',
+                  rate: placeModel.rate,
                   fontSize: 8.sp,
                   iconHeight: 2.h,
                   pageMode: PageMode.dark,
@@ -67,13 +71,27 @@ class DraggableSheetHallInfo extends StatelessWidget {
                   width: 17.2.w,
                   fontSize: 12.sp,
                   buttonRaduis: 5,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PlacePage(
+                          title: placeModel.placeName,
+                          image: placeModel.image,
+                          address: 'Port Said - Egypt',
+                          rate: placeModel.rate,
+                          description: placeModel.description,
+                        ),
+                      ),
+                    );
+                  },
                 )
               ],
             ),
             SizedBox(height: 2.3.h),
             const HallMainInfo(
               icon: 'assets/icons/map/address_fill.svg',
-              title: 'Address',
+              title: 'Port Said - Egypt',
             ),
             SizedBox(height: 0.6.h),
             SizedBox(

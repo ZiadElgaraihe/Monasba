@@ -8,14 +8,16 @@ import 'package:monasba/widgets/texts/page_title.dart';
 import 'package:sizer/sizer.dart';
 
 class PlacePage extends StatelessWidget {
-  const PlacePage(
-      {super.key,
-      required this.title,
-      required this.image,
-      required this.address,
-      required this.rate});
+  const PlacePage({
+    super.key,
+    required this.title,
+    required this.image,
+    required this.address,
+    required this.rate,
+    required this.description,
+  });
 
-  final String title, image, address, rate;
+  final String title, image, address, rate, description;
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +36,13 @@ class PlacePage extends StatelessWidget {
                     width: 22.2.w,
                     height: 12.5.h,
                     decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                          image: AssetImage(image),
-                          fit: BoxFit.fill,
-                        )),
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: AssetImage(image),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
                   ),
                   SizedBox(width: 2.2.h),
                   SizedBox(
@@ -65,10 +68,7 @@ class PlacePage extends StatelessWidget {
               ),
               SizedBox(height: 3.8.h),
               Text(
-                'Lorem ipsum dolor sit amet consectetur. '
-                'Volutpat sed sem tellus tellus quisque. Blandit praesent '
-                'fusce vulputate nulla egestas ultrices diam. Lectus nulla '
-                'ipsum turpis sed enim eu nibh amet sed.',
+                description,
                 style: TextStyle(fontSize: 13.sp),
               ),
               SizedBox(height: 3.8.h),
