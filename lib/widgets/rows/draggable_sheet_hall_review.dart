@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monasba/constants.dart';
+import 'package:monasba/network/models/place_model.dart';
 import 'package:monasba/pages/user%20pages/place%20pages/hall_page.dart';
 import 'package:monasba/widgets/buttons/elevated%20buttons/colored_button.dart';
 import 'package:monasba/widgets/rows/rating_bar.dart';
@@ -8,9 +9,10 @@ import 'package:monasba/widgets/texts/page_title.dart';
 import 'package:sizer/sizer.dart';
 
 class DraggableSheetHallReview extends StatelessWidget {
-  const DraggableSheetHallReview({super.key, required this.orientation});
+  const DraggableSheetHallReview({super.key, required this.orientation, required this.placeModel});
 
   final Orientation orientation;
+  final PlaceModel placeModel;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class DraggableSheetHallReview extends StatelessWidget {
               fontSize: 14.sp,
             ),
             SizedBox(height: 0.9.h),
-            const RatingStars(numberOfStars: 5),
+            RatingStars(numberOfStars: double.parse(placeModel.rate)),
             SizedBox(height: 3.8.h),
             Column(
               children: List.generate(
@@ -77,7 +79,7 @@ class DraggableSheetHallReview extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        const HallPage(title: 'Hall Page', rate: '4.5'),
+                        HallPage(title: 'Hall Page', rate: placeModel.rate),
                   ),
                 );
               },

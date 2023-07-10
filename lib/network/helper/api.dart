@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class Api {
-  final String _baseUrl = 'http://192.168.43.116:2000/api/v1/';
+  final String _baseUrl = 'http://192.168.1.11:2000/api/v1/';
 
   //post request
   Future<Map<String, dynamic>> post({
@@ -29,10 +29,8 @@ class Api {
       };
     }
 
-    http.Response response = await http.post(
-        Uri.parse('$_baseUrl$restOfUrl'),
-        body: jsonEncode(body),
-        headers: headers);
+    http.Response response = await http.post(Uri.parse('$_baseUrl$restOfUrl'),
+        body: jsonEncode(body), headers: headers);
 
     if (response.statusCode >= 200 && response.statusCode < 300) {
       return jsonDecode(response.body);

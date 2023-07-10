@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:monasba/cubits/get_one_place_cubitcubit/get_one_place_cubit.dart';
 import 'package:monasba/widgets/rows/draggable_sheet_hall_info.dart';
 import 'package:monasba/widgets/rows/draggable_sheet_hall_review.dart';
 import 'package:sizer/sizer.dart';
@@ -30,24 +32,39 @@ class DraggableSheet extends StatelessWidget {
               borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
           child: SingleChildScrollView(
             controller: scrollController,
-            child: Column(
-              children: [
-                SizedBox(height: 1.3.h),
-                Container(
-                  width: 17.8.w,
-                  height: 0.6.h,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)),
-                ),
-                SizedBox(height: 2.5.h),
-                DraggableSheetHallInfo(orientation: orientation),
-                SizedBox(height: 3.8.h),
-                DraggableSheetHallReview(orientation: orientation),
-                orientation == Orientation.landscape
-                    ? SizedBox(height: 20.w)
-                    : const SizedBox(),
-              ],
+            child: BlocBuilder<GetOnePlaceCubit, GetOnePlaceState>(
+              builder: (context, state) {
+                if(state is GetOnePlaceSuccess){
+                  return Column(
+                    children: [
+                      SizedBox(height: 1.3.h),
+                      Container(
+                        width: 17.8.w,
+                        height: 0.6.h,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20)),
+                      ),
+                      SizedBox(height: 2.5.h),
+                      DraggableSheetHallInfo(orientation: orientation, placeModel: state.placeModel),
+                      SizedBox(height: 3.8.h),
+                      DraggableSheetHallReview(orientation: orientation, placeModel: state.placeModel),
+                      orientation == Orientation.landscape
+                          ? SizedBox(height: 20.w)
+                          : const SizedBox(),
+                    ],
+                  );
+                }else {
+                  return const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircularProgressIndicator(
+                        color: Colors.white,
+                      ),
+                    ],
+                  );
+                }
+              },
             ),
           ),
         ),

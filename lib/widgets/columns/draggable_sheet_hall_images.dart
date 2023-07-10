@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class DraggableSheetImages extends StatelessWidget {
-  const DraggableSheetImages({super.key, required this.orientation});
+  const DraggableSheetImages({super.key, required this.orientation, required this.image});
 
   final Orientation orientation;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +17,9 @@ class DraggableSheetImages extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             color: Colors.black,
-            image: const DecorationImage(
+            image: DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage('assets/images/hall 1.png'),
+              image: AssetImage(image),
             ),
           ),
         ),
@@ -33,8 +34,8 @@ class DraggableSheetImages extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 color: Colors.black,
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/hall 1.png'),
+                image: DecorationImage(
+                  image: AssetImage(image),
                 ),
               ),
             ),
