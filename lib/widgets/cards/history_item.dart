@@ -19,14 +19,14 @@ class HistoryItem extends StatelessWidget {
               width: 15.6.w,
               height: 8.8.h,
               child: const CircleAvatar(
-                backgroundImage: AssetImage('assets/images/Rectangle 4233.png'),
+                backgroundImage: AssetImage('assets/images/hall 8.png'),
               ),
             ),
             SizedBox(width: 4.4.w),
-            Column(
+            const Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 PlaceNameText(title: 'Name of Place'),
                 LocationRow(city: 'City', country: 'Country'),
               ],

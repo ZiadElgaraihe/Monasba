@@ -47,39 +47,26 @@ class _ChatTextFormFieldState extends State<ChatTextFormField> {
           decoration: InputDecoration(
             suffixIcon: Material(
               color: Colors.transparent,
-              child: value
-                  ? IconButton(
-                      onPressed: () async {
-                        if (controller.text.isNotEmpty) {
-                          Provider.of<ChatProvider>(context, listen: false)
-                              .addToChats(controller.text);
-                          controller.text = '';
-                          await Future.delayed(
-                              const Duration(milliseconds: 500));
-                          widget.scrollController.jumpTo(
-                              widget.scrollController.position.maxScrollExtent);
-                        }
-                      },
-                      padding: EdgeInsets.zero,
-                      splashRadius: 20,
-                      icon: SvgPicture.asset(
-                        'assets/icons/chat icons/send.svg',
-                        height: 3.5.h,
-                        width: 3.1.w,
-                        fit: BoxFit.cover,
-                      ),
-                    )
-                  : IconButton(
-                      onPressed: () {},
-                      splashRadius: 20,
-                      padding: EdgeInsets.zero,
-                      icon: SvgPicture.asset(
-                        'assets/icons/chat icons/voice.svg',
-                        height: 3.5.h,
-                        width: 3.1.w,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+              child: IconButton(
+                onPressed: () async {
+                  if (controller.text.isNotEmpty) {
+                    Provider.of<ChatProvider>(context, listen: false)
+                        .addToChats(controller.text);
+                    controller.text = '';
+                    await Future.delayed(const Duration(milliseconds: 500));
+                    widget.scrollController.jumpTo(
+                        widget.scrollController.position.maxScrollExtent);
+                  }
+                },
+                padding: EdgeInsets.zero,
+                splashRadius: 20,
+                icon: SvgPicture.asset(
+                  'assets/icons/chat icons/send.svg',
+                  height: 3.5.h,
+                  width: 3.1.w,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             hintText: 'Send a message',
             hintStyle: TextStyle(color: value ? Colors.black : Colors.white),

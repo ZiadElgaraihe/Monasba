@@ -31,7 +31,7 @@ class ReviewItem extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: const DecorationImage(
-                      image: AssetImage('assets/images/Rectangle 4233.png'),
+                      image: AssetImage('assets/images/hall 3.png'),
                       fit: BoxFit.fill,
                     ),
                   ),
