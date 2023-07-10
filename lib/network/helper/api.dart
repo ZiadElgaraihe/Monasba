@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class Api {
-  final String _baseUrl = 'http://192.168.1.11:2000/api/v1/';
+  final String _baseUrl = 'http://192.168.1.12:2000/api/v1/';
 
   //post request
   Future<Map<String, dynamic>> post({

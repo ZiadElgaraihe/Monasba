@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monasba/pages/user%20pages/profile%20pages/profile.dart';
 import 'package:monasba/pages/owner%20pages/calender/ownercalender.dart';
-import 'package:monasba/pages/owner%20pages/nav%20bar/owner_side%20bar.dart';
+import 'package:monasba/pages/owner%20pages/nav%20bar/owner_side_bar.dart';
 import 'package:monasba/pages/owner%20pages/review%20pages/owner_review.dart';
 import 'package:sizer/sizer.dart';
 

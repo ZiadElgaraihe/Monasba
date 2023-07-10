@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:monasba/pages/owner%20pages/Owner%20Regestration/edit_owner_place.dart';
 import 'package:monasba/pages/owner%20pages/reservation%20user/reservation_user_page.dart';
 import 'package:monasba/pages/user%20pages/contact%20us%20pages/contact_us_page_one.dart';
 import 'package:monasba/pages/user%20pages/registeration%20pages/login_page.dart';
-import 'package:monasba/pages/user%20pages/sidebar%20pages/notification_page.dart';
 import 'package:monasba/widgets/containers/side_bar_item.dart';
 import 'package:monasba/widgets/nav%20bar/app_navbar.dart';
 import 'package:sizer/sizer.dart';
@@ -127,9 +127,9 @@ class _OwnerSideBarState extends State<OwnerSideBar>
                     SideBarItem(
                       title: 'Edit Place',
                       icon: 'assets/icons/sidebar icons/bell.svg',
-                      hasNotifications: true,
+                      hasNotifications: false,
                       onTap: () {
-                        Navigator.pushNamed(context, NotificationPage.id);
+                        Navigator.pushNamed(context, EditOwnerHome.id);
                       },
                     ),
                     SideBarItem(

@@ -4,12 +4,12 @@ import 'package:monasba/constants.dart';
 import 'package:monasba/cubits/login/login_cubit.dart';
 import 'package:monasba/pages/user%20pages/registeration%20pages/forget_password_page.dart';
 import 'package:monasba/pages/user%20pages/registeration%20pages/signup_page.dart';
-import 'package:monasba/pages/owner%20pages/nav%20bar/owner_navbar.dart';
 import 'package:monasba/widgets/appbars/empty_appbar.dart';
 import 'package:monasba/widgets/buttons/elevated%20buttons/colored_button.dart';
 import 'package:monasba/widgets/buttons/floating%20action%20buttons/facebook_and_google_buttons.dart';
 import 'package:monasba/widgets/fields/textformfields/data_text_form_field.dart';
 import 'package:monasba/widgets/fields/textformfields/password_text_form_field.dart';
+import 'package:monasba/widgets/nav%20bar/app_navbar.dart';
 import 'package:monasba/widgets/rows/text_and_button_row.dart';
 import 'package:monasba/widgets/texts/or_divider.dart';
 import 'package:monasba/widgets/texts/page_title.dart';
@@ -99,15 +99,23 @@ class _LoginPageState extends State<LoginPage> {
                   BlocConsumer<LoginCubit, LoginState>(
                     listener: (context, state) {
                       if (state is LoginSuccess) {
-                        Navigator.pushReplacementNamed(
-                            context, OwnerAppNavBar.id);
+                        Navigator.pop(context);
+                        Navigator.pushReplacementNamed(context, AppNavBar.id);
                       } else if (state is LoginError) {
+                        Navigator.pop(context);
                         if (formKey.currentState!.validate()) {
                           // ignore: avoid_print
                           print(emailController.text);
                           // ignore: avoid_print
                           print(passwordController.text);
                         }
+                      } else if (state is LoginLoading) {
+                        showDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (context) =>
+                              const Center(child: CircularProgressIndicator()),
+                        );
                       }
                     },
                     builder: (context, state) {
@@ -116,9 +124,6 @@ class _LoginPageState extends State<LoginPage> {
                           pageMode: PageMode.dark,
                           onPressed: () //async
                               {
-                            print('email :${emailController.text}');
-                            print('password :${passwordController.text}');
-
                             LoginCubit.get(context).userSignIn(
                                 emailController.text, passwordController.text);
                           });
